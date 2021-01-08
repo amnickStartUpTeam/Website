@@ -6,118 +6,153 @@ function Central() {
   return (
     <div>
       {/* <!-- Main page --> */}
-      <div class="welcome-content">
-        <h1>WelCome to the StartUP Team</h1>
-        <hr></hr>
-        <p>For all your profession web designing and development</p>
+
+      <div class="central-div-welcome-content">
+        <h1>WellCome to the StartUP Team</h1>
+        <hr class="central-hr-welcome"></hr>
+        <p>For all your professional web designing and development</p>
       </div>
 
-      {/* <!--  --> */}
-      <div id="container">
-        <div class="grid-boxes">
+      {/* <!-- first section --> */}
 
-          <div class="grid-box">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAX8mMzrPY6fvqdLsC_QNLaakpUx22CnN6cA&usqp=CAU" alt="" class="w-100"></img>
-            <h4 class="my-4">Amazing. Incredible</h4>
+      <div id="central-div-container">
+        <div class="central-div-grid-boxes">
+
+          <div class="central-div-grid-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAX8mMzrPY6fvqdLsC_QNLaakpUx22CnN6cA&usqp=CAU" alt="" class="central-div-img"></img>
+            <h4>Amazing. Incredible</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ipsum expedita est asperiores at nobis eligendi corporis repellendus natus distinctio!</p>
-            <a href="#" class="btn">Our Innovation</a>
+            <a href="#" class="central-div-btn">Our Innovation</a>
           </div>
 
-          <div class="grid-box">
-            <img src="https://d1t2cyxhsn73kx.cloudfront.net/image/article/teamwork.jpg" alt="" class="w-100"></img>
-            <h4 class="my-4">Incredible how we work</h4>
+          <div class="central-div-grid-box">
+            <img src="https://d1t2cyxhsn73kx.cloudfront.net/image/article/teamwork.jpg" alt="" class="central-div-img"></img>
+            <h4>Incredible how we work</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ipsum expedita est asperiores at nobis eligendi corporis repellendus natus distinctio!</p>
-            <a href="#" class="btn">Our Story</a>
+            <a href="#" class="central-div-btn">Our Story</a>
           </div>
 
-          <div class="grid-box">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDlvgZ2dp9P70KYHluP4qPHdKdeI_0nsXHg&usqp=CAU" alt="" class="w-100"></img>
-            <h4 class="my-4">Incredible Vision</h4>
+          <div class="central-div-grid-box">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDlvgZ2dp9P70KYHluP4qPHdKdeI_0nsXHg&usqp=CAU" alt="" class="central-div-img"></img>
+            <h4>Incredible Vision</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A ipsum expedita est asperiores at nobis eligendi corporis repellendus natus distinctio!</p>
-            <a href="#" class="btn">Our Vision</a>
+            <a href="#" class="central-div-btn">Our Vision</a>
           </div>
 
         </div>
       </div>
+
+      {/* border */}
+      <hr class="central-hr-horizonal"></hr>
       
-      {/* <!-- Info div --> */}
-      <div class="info">
-        <img src="https://image.shutterstock.com/image-illustration/2d-illustration-imaginary-dreamlike-motivational-260nw-1199438935.jpg" alt="" class="info-img"></img>
-        <div>
-          <h2>Your Business On The Web</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae alias reiciendis deleniti possimus nemo non repellendus?
-            Quae atque vero modi quidem! Autem cupiditate fugit doloribus ad amet, asperiores provident commodi.</p>
-          <a href="#" class="btn">Learn More</a>
-        </div>
-      </div>
-
-      <div class="visit-info">
-        <div >
-          <h1>We are expecting your visit</h1>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos nulla, necessitatibus eveniet unde ipsa nemo qui odit, inventore magnam voluptas porro reprehenderit.</p>
-          <a href="#" target="blank" class="btn">From our Agent</a>
-        </div>
-        <img src="https://swaddle-wkwcb6s.stackpathdns.com/wp-content/uploads/2018/08/imaginary-world.jpg" alt="" class="visit-info-img"></img>
-      </div>
-
       {/* <!-- port --> */}
-      <div class="port">
-        <h1>portfolio</h1>
-        <hr></hr>
+
+      <div class="central-div-port">
+        <h1 class="central-div-port-head">portfolio</h1>
+        <p class="central-div-port-text"><strong>Our Team of expert can help you bring your ideas in to light!</strong></p>
       </div>
 
       {/* <!-- Boxes div --> */}
-      <div class="boxes">
-        <div class="box">
-          <img src="https://cdn.mos.cms.futurecdn.net/jgXYNK8U4o4itGBBMRtCKa-1200-80.jpg" alt="" width="350px" height="200px"></img>
+
+      <div class="central-div-boxes">
+
+        <div class="central-div-box">
+          <img src="https://cdn.mos.cms.futurecdn.net/jgXYNK8U4o4itGBBMRtCKa-1200-80.jpg" alt="" width="350px" height="200px" class="central-div-img"></img>
           <h3>Analytics</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
         </div>
-        <div class="box">
-          <img src="https://timesbusinessworld.com/wp-content/uploads/2019/09/Business-Marketing0.jpg" alt="" width="350px" height="200px"></img>
+
+        <div class="central-div-box">
+          <img src="https://timesbusinessworld.com/wp-content/uploads/2019/09/Business-Marketing0.jpg" alt="" width="350px" height="200px" class="central-div-img"></img>
           <h3>Marketing</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
         </div>
 
-        <div class="box">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKfT5VH2ZnqIk34Szx0sKBwgTJef9bAYuOog&usqp=CAU" alt="" width="350px" height="200px"></img>
+        <div class="central-div-box">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKfT5VH2ZnqIk34Szx0sKBwgTJef9bAYuOog&usqp=CAU" alt="" width="350px" height="200px" class="central-div-img"></img>
           <h3>Development</h3>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. !</p>
         </div>
 
-        <div class="box">
-          <img src="https://www.practicalparenting.com.au/media/12522/01_03_19-pitbull-landscape.jpg" alt="" width="350px" height="200px"></img>
+        <div class="central-div-box">
+          <img src="https://www.practicalparenting.com.au/media/12522/01_03_19-pitbull-landscape.jpg" alt="" width="350px" height="200px" class="central-div-img"></img>
           <h3>Support</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita?</p>
         </div>
       </div>
 
-      {/* <!-- Start Fixed Background --> */}
-      <div class="portfolio">
-        <img src="https://source.unsplash.com/random/200x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/201x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/202x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/203x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/204x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/205x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/206x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/207x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/208x200" alt=""></img>
-        <img src="https://source.unsplash.com/random/209x200" alt=""></img>
-      </div>
+      <hr class="central-hr-horizonal"></hr>
 
-      <div class="advance">
-        <h1>Advance to the next level</h1>
-        <hr></hr>
-        <h3>...See what's on the other side</h3>
-      </div>
-
-      {/* <!-- jumbotron --> */}
-      <div class="row">
-        <h4>Looking for quality web Design and development Services?</h4>
-        <a href="#" class="btn">Contact Us Today</a>
+      {/* web-tools */}
+      <div className="central-div-web-tools">
+        <h3 class="central-div-web-tools-head">We built all what you need, for quality web Design and development Services?</h3>
+        <p class="central-div-web-tools-text"><strong>Here is some of the best web languages, framwork/libarary and designing we used</strong></p>
       </div>
       
+      {/* designing and development tools */}
+      <div class="central-div-columns-container">
+
+        <div class="central-div-flex-columns">
+        <img src="https://img.icons8.com/ios-filled/100/000000/jquery.png"
+            alt="" width="100px" class="central-div-img"></img>
+          <p><strong>Jquery</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+          <img src="https://img.icons8.com/nolan/100/react-native.png"
+            alt="" class="central-div-img"></img>
+          <p><strong>Reactjs</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+          <img src="https://img.icons8.com/color/100/000000/nodejs.png"
+            alt="" class="central-div-img"></img>
+          <p><strong>Nodejs</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+          <img src="https://img.icons8.com/color/100/000000/javascript-logo-1.png"
+            alt="" class="central-div-img"></img>
+          <p><strong>Javascript</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+          <img src="https://img.icons8.com/nolan/100/html-5.png"
+            alt="" class="central-div-img"></img>
+          <p><strong>HTML5</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+          <img src="https://img.icons8.com/color/100/000000/css3.png"
+            alt="" class="central-div-img"></img>
+          <p><strong>CSS3</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+        <img src="https://img.icons8.com/color/100/000000/mongodb.png"
+          alt="" class="central-div-img"></img> 
+          <p><strong>MongoDB</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+        <img src="https://img.icons8.com/nolan/100/mysql.png"
+          alt="" class="central-div-img"></img> 
+          <p><strong>mySql</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+        <img src="https://img.icons8.com/color/100/000000/adobe-photoshop.png"
+          alt="" class="central-div-img"></img> 
+          <p><strong>Photoshop</strong></p>
+        </div>
+
+        <div class="central-div-flex-columns">
+        <img src="https://img.icons8.com/windows/100/4a90e2/figma.png"
+          alt="" class="central-div-img"></img> 
+          <p><strong>Figma</strong></p>
+        </div>
+
+      </div>
     </div>
   );
 }
