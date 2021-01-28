@@ -1,47 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-.Menu {
-  background-color: #fff;
-  display: flow-root;
-  margin-bottom: 12%;
-  margin-top: 2%;
-}
-div.gallery {
-  border: 1px solid #ccc;
-  margin: 5px;
+.rest_menu {
+  grid-row: 1/2;
 }
 
-div.gallery:hover {
-  border: 1px solid #777;
-}
-
-div.gallery img {
-  width: 100%;
-  height: auto;
-}
-
-div.desc {
-  padding: 15px;
-  text-align: center;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-.responsive {
-  padding: 0 6px;
-  float: left;
-  width: 24.99999%;
+.rest_logo {
+  height: 7rem;
+  width: 7rem;
+  margin-right: 3rem;
 }
 
 .rest_menu-list {
   list-style: none;
   display: flex;
   justify-content: center;
+  align-items: center;
   grid-gap: 2rem;
   z-index: 10;
   position: relative;
+}
+
+.rest_menu-link:before {
+  opacity: 0;
+  content: "";
+  background-color: #fcda9a;
+  height: 8px;
+  width: 8px;
+  display: inline-block;
+  border-radius: 50%;
+  transform: translateY(-3px);
+  margin-right: 4px;
 }
 
 .rest_menu-link:link,
@@ -63,15 +51,6 @@ div.desc {
   transform: translateY(-3px);
 }
 
-@media only screen and (max-width: 700px) {
-  .responsive {
-    width: 49.99999%;
-    margin: 6px 0;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .responsive {
-    width: 100%;
-  }
+.rest_menu-link:hover:before {
+  opacity: 1;
 }
