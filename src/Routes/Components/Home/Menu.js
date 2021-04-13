@@ -135,7 +135,7 @@ function Menu() {
   return (
     <>
       <Nav>
-      <Logo src={logo_img} alt="logo"/>
+        <Logo src={logo_img} alt="logo" />
         <Navbar>
           <Item>
             <StyledLink to="/">Home</StyledLink>
@@ -147,7 +147,15 @@ function Menu() {
             <StyledLink to="">Services</StyledLink>
           </Item>
           <Item>
-            <StyledLink to="/restaurant">Our Work</StyledLink>
+            <StyledLink>Our Work</StyledLink>
+          </Item>
+          <Item>
+            <StyledLink to="/restaurant">
+              <select>
+                <option> English</option>
+                <option> Greek</option>
+              </select>
+            </StyledLink>
           </Item>
         </Navbar>
         <NavIcon onClick={() => setToggle(!toggle)}>
@@ -158,7 +166,7 @@ function Menu() {
       </Nav>
       <Overlay toggle={!toggle}>
         <OverlayMenu toggle={!toggle}>
-        <Item>
+          <Item>
             <StyledLink to="/">Home</StyledLink>
           </Item>
           <Item>
@@ -170,6 +178,12 @@ function Menu() {
           <Item>
             <StyledLink to="/restaurant">Our Work</StyledLink>
           </Item>
+          <StyledLink>
+            <select>
+              <option> English</option>
+              <option> Greek</option>
+            </select>
+          </StyledLink>
         </OverlayMenu>
       </Overlay>
     </>
