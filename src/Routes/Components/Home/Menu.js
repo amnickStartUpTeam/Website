@@ -1,7 +1,11 @@
-import React,{ useState } from 'react';
-import {Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo_img from '../../imgs/footer_logo.png';
+import logo_img from "../../imgs/footer_logo.png";
+import { Text } from "./containers/Language";
+import { LanguageContext } from "./containers/Language";
+
+import { languageOptions } from "./languages";
 
 const Nav = styled.nav`
   min-height: 9vh;
@@ -12,25 +16,23 @@ const Nav = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-  z-index:10;
+  z-index: 10;
   @media (max-width: 768px) {
     justify-content: space-between;
   }
-
 `;
 
 const Logo = styled.img`
-height: 45px;
-width: 45px;
-margin-left: 50px;
+  height: 45px;
+  width: 45px;
+  margin-left: 50px;
 `;
-
 
 const Navbar = styled.ul`
   list-style: none;
   display: flex;
-  width:inherit;
-  justify-content:center;
+  width: inherit;
+  justify-content: center;
 
   li:nth-child(2) {
     margin: 0px 20px;
@@ -42,24 +44,24 @@ const Navbar = styled.ul`
 `;
 
 const Item = styled.li`
-padding: 0 3% 0 3%;
+  padding: 0 3% 0 3%;
 `;
 
 const StyledLink = styled(Link)`
-color: #171819;
-font-family: "Open Sans", sans-serif;
-font-size: 16px;
-font-weight: 700;
-text-decoration: none;
-background-image: linear-gradient(rgb(211, 199, 199), rgb(211, 199, 199));
-background-position: 0% 100%;
-background-repeat: no-repeat;
-background-size: 0% 2px;
-transition: background-size 0.3s;
+  color: #171819;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  background-image: linear-gradient(rgb(211, 199, 199), rgb(211, 199, 199));
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
   :hover {
     cursor: pointer;
     background-size: 100% 3px;
-}
+  }
 `;
 
 const NavIcon = styled.button`
@@ -84,19 +86,19 @@ const Line = styled.span`
   transition: width 0.4s ease-in-out;
 
   :nth-child(2) {
-    width: ${({toggle}) => toggle ? "70%" : "40%"};
+    width: ${({ toggle }) => (toggle ? "70%" : "40%")};
   }
 `;
 
 const Overlay = styled.div`
-  height:${({toggle}) => toggle ? "0" : "100vh"};
+  height: ${({ toggle }) => (toggle ? "0" : "100vh")};
   position: fixed;
-  display:flex;
+  display: flex;
   width: 36vw;
   right: 0;
   top: 9vh;
-  background: #fff; 
-  box-shadow:${({toggle}) => toggle ?"0" :"8px 0px 5px 9px grey"};
+  background: #fff;
+  box-shadow: ${({ toggle }) => (toggle ? "0" : "8px 0px 5px 9px grey")};
   transition: height 0.4s linear;
 
   @media (min-width: 769px) {
@@ -107,14 +109,14 @@ const Overlay = styled.div`
 const OverlayMenu = styled.ul`
   list-style: none;
   position: absolute;
-  width:inherit;
+  width: inherit;
   left: 50%;
   top: 45%;
-  display:${({toggle}) => toggle ? "none" : ""};
+  display: ${({ toggle }) => (toggle ? "none" : "")};
   transform: translate(-50%, -50%);
 
   li {
-    opacity: ${({toggle}) => toggle ? 0: 1};
+    opacity: ${({ toggle }) => (toggle ? 0 : 1)};
     font-size: 25px;
     margin: 50px 0px;
     transition: opacity 0.4s ease-in-out;
@@ -127,11 +129,14 @@ const OverlayMenu = styled.ul`
 
 function Menu() {
   const [toggle, setToggle] = useState(false);
+  const { userLanguage, userLanguageChange } = useContext(LanguageContext);
+
   // const onClick = e => {
   //   e.preventDefault();
   //   setToggle(!false);
   // };
 
+  const handleLanguageChange = (e) => userLanguageChange(e.target.value);
   return (
     <>
       <Nav>
@@ -150,10 +155,13 @@ function Menu() {
             <StyledLink>Our Work</StyledLink>
           </Item>
           <Item>
-            <StyledLink to="/restaurant">
-              <select>
-                <option> English</option>
-                <option> Greek</option>
+            <StyledLink>
+              <select onChange={handleLanguageChange} value={userLanguage}>
+                {Object.entries(languageOptions).map(([id, name]) => (
+                  <option key={id} value={id}>
+                    {name}
+                  </option>
+                ))}
               </select>
             </StyledLink>
           </Item>
@@ -179,14 +187,17 @@ function Menu() {
             <StyledLink to="/restaurant">Our Work</StyledLink>
           </Item>
           <StyledLink>
-            <select>
-              <option> English</option>
-              <option> Greek</option>
+            <select onChange={handleLanguageChange} value={userLanguage}>
+              {Object.entries(languageOptions).map(([id, name]) => (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              ))}
             </select>
           </StyledLink>
         </OverlayMenu>
       </Overlay>
     </>
   );
-};
+}
 export default Menu;
