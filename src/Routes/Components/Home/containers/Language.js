@@ -8,7 +8,7 @@ export const LanguageContext = createContext({
   dictionary: dictionaryList.en,
 });
 
-// it provides the language context to app
+// it provides the language context to app, and the default language is english
 export function LanguageProvider({ children }) {
   const defaultLanguage = window.localStorage.getItem("rcml-lang");
   const [userLanguage, setUserLanguage] = useState(defaultLanguage || "en");

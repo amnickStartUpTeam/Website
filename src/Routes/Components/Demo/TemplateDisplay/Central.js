@@ -124,7 +124,6 @@ function DisplayTemp({ img, heading, paragph }) {
       <h3 className="JaDTemplateHead">{heading}</h3>
       <p className="JaDTemplateText">{paragph}</p>
 =======
-
 function DisplayTemp (props) {
   AOS.init({
     offset: 300,
