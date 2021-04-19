@@ -10,11 +10,13 @@ import TempJ3 from "./Routes/Components/TempJa3";
 import TempB1 from "./Routes/Components/TempBo1";
 import TempB2 from "./Routes/Components/TempBo2";
 import TempMa1 from "./Routes/Components/TempMa1";
+import TempMa2 from "./Routes/Components/TempMa2";
 import TempMu1 from "./Routes/Components/TempMu1";
 import TempMu2 from "./Routes/Components/TempMu2";
 import TempY1 from "./Routes/Components/TempYu1";
 import TempY2 from "./Routes/Components/TempYu2";
 import TempY3 from "./Routes/Components/TempYu3An";
+import SignUp from "./Routes/Components/UserSignUp";
 import Error from "./Routes/Components/Error";// Notice the keyword "exact" so react just renders the default page when nothing but the '/' is on it.
 import { LanguageProvider } from './Routes/Components/Home/containers/Language';
 
@@ -29,6 +31,7 @@ function App() {
         <Route path='/restaurant' exact component={Restaurant} /> 
           <Route path='/store' exact component={Store} /> 
           <Route path='/templateMa1' exact component={TempMa1} /> 
+          <Route path='/templateMa2' exact component={TempMa2} /> 
           <Route path='/templateJ1' exact component={TempJ1} /> 
           <Route path='/templateJ2' exact component={TempJ2} /> 
           <Route path='/templateJ3' exact component={TempJ3} /> 
@@ -38,7 +41,8 @@ function App() {
           <Route path='/templateY2' exact component={TempY2} /> 
           <Route path='/templateY3' exact component={TempY3} /> 
           <Route path='/templateMu1' exact component={TempMu1} /> 
-          <Route path='/templateMu2' exact component={TempMu2} /> 
+          <Route path='/templateMu2' exact component={TempMu2} />
+          <Route path='/signUp' exact component={SignUp} /> 
           <Route path='*' component={Error}/>
         </Switch>
       </div>
