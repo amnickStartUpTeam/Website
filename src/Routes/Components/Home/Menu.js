@@ -164,6 +164,22 @@ function Menu() {
                 ))}
               </select>
             </StyledLink>
+            <StyledLink>
+              <img
+                className="flag_of_the_united_states"
+                Style="max-width: 5%;     margin-left: 6px;"
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png"
+                alt="flag"
+              />
+
+              <img
+                className="flag_of_the_united_states"
+                Style="    max-width: 4%;
+              margin-left: 4px;"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARYAAAC2CAMAAAAr+FInAAAAllBMVEX///8NXq8AVKsAWKxrlMgAUaqnvNzi7farwt8AU6sAW660yuRpjsQLXa/y9vlGfb24wNGhxe7x+v///vodc8RAcrUtbLU4dLrs9v709PSXv/Hw9fmaqL/5/P7g5uquyObY5/gASqkAbMC00vG9x9MqbrhEh81Zhb+Ru+rh7/wYZLIrabQ4fsicxfO40Oq90OTK3/jH0NlWlnc+AAACoElEQVR4nO3dyU7DMBgAYZoQoIGwQ1kLZd+X9385xAEJwVQ2oGK7ne+I9At15F7spJ6bkyRJ0lQYLsU42Tv8anU5arIAp5BlfVSFNWeb3wa3dps6YjR/ow3KUvXC2m3IstNGTBagMgsxCzILMgsyCzILMgsyCzILMgsyCzILMgsyCzILSpKlbevMNQmydIP5ldyd/3+W6gD+Z2b24G9mMQszCzILMgsyCzILMgsyCzILMgsyCzILMgvCLP2JZqlLzRKzWjrO0oUnC1gtW5il6YLaGrPUbXiyn38WXC0Xl4MIV5DlOmZwcLOYvVvIsn8cBSbj5o7qiC9pUrjzv//DFfdTR1X4S5pUoiyuFrOYxSxmMcsHsyCzILMgsyCzILMgsyCzILMg91vImCwT351L/bkDxjyXe7cbdv8Ae7lr9xGTdzfHh6uZo73cmJ3/js+JYtZBqTv/niqmOFUsNourxSzILMgsyCzILMgsyCzILMgsyCzILMgsyCwoQZb6cfIf668SZOldruVuJ8Fb872uzV2K31h4D5M3f6iEmQWZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBXGWUT9k7I0z/So4WwC8cWa4HOMJnkB9jposwAtkmfTjygWgLW6zmIWZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQVRluHCzKNNy6hL1afa7y9Vn2q/PyeaamZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBmOVi5rPUuFqa1Jeap4Yv/L6uzM86ej3cLW53/plZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBZEGZJfaV5engRz6iZcT5piTw+Q2ZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBZkFmQWZBn7K8AfNsOyL/elHmAAAAAElFTkSuQmCC"
+                alt="flag"
+              />
+            </StyledLink>
           </Item>
         </Navbar>
         <NavIcon onClick={() => setToggle(!toggle)}>
