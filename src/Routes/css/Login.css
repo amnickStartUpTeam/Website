@@ -14,19 +14,19 @@
 .login-tittle {
   font-size: 25px;
   font-weight: 600;
-  margin-bottom: 49px;
 }
 
 .login-form {
   background-color: white;
   color: black;
-  width: 20%;
+  width: 40vw;
   height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 15px;
+  margin: 20px;
 }
 
 .login-field {
@@ -66,9 +66,8 @@ login-input:focus {
 
 .login-div {
   font-size: 13px;
-  color: gray;
-  align-self: start;
 }
+
 
 .login-btn {
   border: 0;
@@ -84,5 +83,7 @@ login-input:focus {
 
 .login-btn:hover {
   cursor: pointer;
-  background-color: #015ca1;
+  border-color: #0067b8;
+  background-color: #0067b8;
+  padding: 6px;
 }

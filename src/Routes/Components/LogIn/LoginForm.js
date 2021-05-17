@@ -17,11 +17,11 @@ const LoginForm = () => {
                     <input className="login-input" name="password" placeholder="Password"></input>
                 </label>
             </fieldset>
-            <button className="login-btn" type="submit">Log in</button>
             <div className="login-div">
                 <span>No account?</span>
                 <Link to="/">Create One!</Link>
             </div>
+            <button className="login-btn" type="submit">Log in</button>
             </form>
         </div>
      );
