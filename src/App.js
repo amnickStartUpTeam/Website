@@ -29,7 +29,7 @@ function App() {
       <div className="App"> 
         <Switch>
           <Route path='/' exact component={Home} /> 
-          <Route path='/homeMenu' exact component={About} /> 
+          <Route path='/about' exact component={About} /> 
           <Route path='/login' exact component={LogIn} />  
           <Route path='/restaurant' exact component={Restaurant} /> 
           <Route path='/store' exact component={Store} /> 
