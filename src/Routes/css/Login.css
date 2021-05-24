@@ -70,10 +70,28 @@ login-input:focus {
   align-self: start;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 26ed66fb3fd16456898b9176d580895bf56dfc1b
 .login-btn {
   border: 0;
   border-radius: 5px;
   color: #fff;
+<<<<<<< HEAD
+=======
+  background-color: #0067b8;
+  padding: 6px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  align-self: flex-end;
+  width: 25%;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  border-color: #0067b8;
+>>>>>>> 26ed66fb3fd16456898b9176d580895bf56dfc1b
   background-color: #0067b8;
   padding: 6px;
   margin-top: 50px;
