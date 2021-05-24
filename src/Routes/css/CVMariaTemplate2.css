@@ -57,9 +57,10 @@
   justify-content: center;
 }
 .CVMarTemp2-header-btn {
-  display: inline-block;
+  padding: 0.5px;
   cursor: pointer;
   border: 1px solid darkcyan;
+  border-radius: 5px;
   color: darkcyan;
   font-size: 12px;
   font-weight: 600;
@@ -94,8 +95,13 @@
 }
 
 .CVMarTemp2-header-back {
+  padding: 0.5px;
+  cursor: pointer;
+  border: 1px solid darkcyan;
+  border-radius: 5px;
   color: darkcyan;
-  font-size: 12px;
+  font-size: 20px;
+  font-weight: 800;
   margin-left: 50px;
 }
 
