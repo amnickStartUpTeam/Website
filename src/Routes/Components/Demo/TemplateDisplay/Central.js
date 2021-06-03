@@ -16,7 +16,7 @@ import TempJ3 from './imgs/temp-j3.png';
 import TempB2 from './imgs/temp-b2.png';
 import TempY3 from './imgs/temp-y3.png';
 import TempMu2 from './imgs/temp-mu2.png';
-import TempMa2 from './imgs/rp_1.png';
+import TempMa2 from './imgs/temp-ma2.png';
 
 function Central() {
   return (
@@ -111,7 +111,7 @@ function DisplayResAni () {
           <a href='/templateMu2' id='JaTAniTag'><DisplayAniTemp img={TempMu2}
           heading='Your Prefered Resume Template'
           paragph='Just click and fill in your details or you can let one of our team members do it for you.' /></a>
-          <a href='/templateJ2' id='JaTAniTag'><DisplayAniTemp img={TempMa2}
+          <a href='/templateMa2' id='JaTAniTag'><DisplayAniTemp img={TempMa2}
           heading='Your Prefered Resume Template'
           paragph='Just click and fill in your details or you can let one of our team members do it for you.' /></a>
         </div>
@@ -133,4 +133,4 @@ function DisplayAniTemp (props) {
   )
 }
 
-export default Central;
+export default Central; 
