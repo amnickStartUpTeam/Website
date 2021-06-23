@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../connection/connection');
 
 /* GET method */
-router.get('/countries', (req, res) => {
+router.get('/', (req, res) => {
   try{
     pool.query('SELECT * FROM countries', function (error, results, fields) {
             if (error) {
@@ -17,7 +17,7 @@ router.get('/countries', (req, res) => {
 });
 
 /* Specific GET method */
-router.get('/countries/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   try {
     pool.query(
       `SELECT * FROM countries WHERE id=${req.params.id}`,
@@ -31,12 +31,12 @@ router.get('/countries/:id', (req, res) => {
 });
 
 /* POST method */
-router.post('/countries', (req, res) => {
+router.post('/', (req, res) => {
   try {
     pool.query(
       `INSERT INTO countries (creationDate, countryName) 
       VALUES ('${req.body.creationDate}',
-    '${req.body.countryName}')`,
+            '${req.body.countryName}')`,
       () => {
         res.send('Posted successfully.');
       }
@@ -47,13 +47,14 @@ router.post('/countries', (req, res) => {
 });
 
 /* PUT method */
-router.put('/countries/:id', (req, res) => {
-  try {
+router.put('/:id', (req, res) => {
+  try { 
     pool.query(
       `
-    UPDATE users SET
-    street='${req.body.creationDate}',
-    street_no='${req.body.countryName}'
+    UPDATE countries SET
+    creationDate='${req.body.creationDate}', 
+    countryName='${req.body.countryName}'
+    WHERE id=${req.params.id}
     `,
       () => {
         res.send('Updated entry.');
@@ -66,7 +67,7 @@ router.put('/countries/:id', (req, res) => {
 });
 
 /* DELETE method */
-router.delete('/countries/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   try {
     pool.query(`DELETE FROM countries WHERE id=${req.params.id}`, () => {
       res.send('Deleted entry.');

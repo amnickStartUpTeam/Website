@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../connection/connection');
 
 /* GET method */
-router.get('/genders', (req, res) => {
+router.get('/', (req, res) => {
   try{
     pool.query('SELECT * FROM genders', function (error, results, fields) {
             if (error) {
@@ -17,7 +17,7 @@ router.get('/genders', (req, res) => {
 });
 
 /* Specific GET method */
-router.get('/genders/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   try {
     pool.query(
       `SELECT * FROM genders WHERE id=${req.params.id}`,
@@ -31,13 +31,13 @@ router.get('/genders/:id', (req, res) => {
 });
 
 /* POST method */
-router.post('/genders', (req, res) => {
+router.post('/', (req, res) => {
   try {
     pool.query(
-      `INSERT INTO genders (creationDate, fullName) 
+      `INSERT INTO genders (creationDate, fullName, gender) 
       VALUES ('${req.body.creationDate}',
-    '${req.body.fullName}'),
-    '${req.body.gender}')`,
+            '${req.body.fullName}',
+            '${req.body.gender}')`,
       () => {
         res.send('Posted successfully.');
       }
@@ -48,14 +48,15 @@ router.post('/genders', (req, res) => {
 });
 
 /* PUT method */
-router.put('/genders/:id', (req, res) => {
-  try {
+router.put('/:id', (req, res) => {
+  try { 
     pool.query(
       `
-    UPDATE users SET
-    street='${req.body.creationDate}',
-    street_no='${req.body.fullName}'
-    street_no='${req.body.gender}'
+    UPDATE genders SET
+    creationDate='${req.body.creationDate}', 
+    fullName='${req.body.fullName}'
+    gender='${req.body.gender}'
+    WHERE id=${req.params.id}
     `,
       () => {
         res.send('Updated entry.');
@@ -68,7 +69,7 @@ router.put('/genders/:id', (req, res) => {
 });
 
 /* DELETE method */
-router.delete('/genders/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   try {
     pool.query(`DELETE FROM genders WHERE id=${req.params.id}`, () => {
       res.send('Deleted entry.');
