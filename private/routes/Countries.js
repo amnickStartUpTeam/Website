@@ -6,10 +6,10 @@ const pool = require('../connection/connection');
 router.get('/', (req, res) => {
   try{
     pool.query('SELECT * FROM countries', function (error, results, fields) {
-            if (error) {
-                res.send(error);
-            }
-            res.send(results);
+      if (error) {
+          res.send(error);
+      }
+      res.send(results);
     });
   } catch (error) {
     if (error) console.error(`Error: ${error.message}`);
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
     pool.query(
       `INSERT INTO countries (creationDate, countryName) 
       VALUES ('${req.body.creationDate}',
-            '${req.body.countryName}')`,
+        '${req.body.countryName}')`,
       () => {
         res.send('Posted successfully.');
       }
