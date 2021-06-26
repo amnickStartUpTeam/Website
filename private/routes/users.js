@@ -5,11 +5,11 @@ const pool = require('../connection/connection');
 /* GET method */
 router.get('/', (req, res) => {
   try{
-    pool.query('SELECT * FROM users', function (error, results, fields) {
-            if (error) {
-                res.send(error);
-            }
-            res.send(results);
+    pool.query('SELECT * FROM users', (error, results, fields) => {
+      if (error) {
+        res.send(error);
+      }
+      res.send(results);
     });
   } catch (error) {
     if (error) console.error(`Error: ${error.message}`);
@@ -19,8 +19,7 @@ router.get('/', (req, res) => {
 /* Specific GET method */
 router.get('/:id', (req, res) => {
   try {
-    pool.query(
-      `SELECT * FROM users WHERE id=${req.params.id}`,
+    pool.query(`SELECT * FROM users WHERE id=${req.params.id}`,
       (error, results) => {
         res.send(results);
       }
@@ -34,18 +33,14 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   try {
     pool.query(
-      `INSERT INTO users (creationDate, firstName, lastName, email, password, country, language, dateOfBirth, profession
-        lookingJobAt, gender) 
+      `INSERT INTO users (creationDate, firstName, lastName, email, password, dateOfBirth, lookingJobAt) 
       VALUES ('${req.body.creationDate}',
     '${req.body.firstName}',
     '${req.body.lastName}',
     '${req.body.email}',
     '${req.body.password}',
-    '${req.body.language}',
     '${req.body.dateOfBirth}',
-    '${req.body.profession}',
-    '${req.body.lookingJobAt}',
-    '${req.body.gender}')`,
+    '${req.body.lookingJobAt}')`,
       () => {
         res.send('Posted successfully.');
       }
@@ -58,19 +53,18 @@ router.post('/', (req, res) => {
 /* PUT method */
 router.put('/:id', (req, res) => {
   try {
-    pool.query(
-      `
-    UPDATE users SET
-    street='${req.body.creationDate}',
-    street_no='${req.body.firstName}',
-    region='${req.body.lastName}',
-    zipcode='${req.body.email}',
-    country_id='${req.body.password}',
-    country_id='${req.body.language}',
-    country_id='${req.body.dateOfBirth}',
-    country_id='${req.body.profession}',
-    country_id='${req.body.lookingJobAt}',
-    state_id='${req.body.gender}'
+    pool.query(`UPDATE users SET
+    creationDate='${req.body.creationDate}',
+    firstName='${req.body.firstName}',
+    lastName='${req.body.lastName}',
+    email='${req.body.email}',
+    password='${req.body.password}',
+    country='${req.body.country}',
+    language='${req.body.language}',
+    dateOfBirth='${req.body.dateOfBirth}',
+    profession='${req.body.profession}',
+    lookingJobAt='${req.body.lookingJobAt}',
+    gender='${req.body.gender}'
     WHERE id=${req.params.id}
     `,
       () => {
