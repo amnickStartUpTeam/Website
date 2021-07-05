@@ -24,6 +24,6 @@ exports.seed = async function (knex) {
   for (let i = 0; i < desiredFakeUserTypes; i++) {
     fakeUserTypes.push(createFakeUserTypes());
   }
-
   await knex('userTypes').insert(fakeUserTypes);
 };
+
