@@ -13,16 +13,15 @@ const moment = require('moment');
 
 const createFakeUserTypes = () => ({
   creationDate: moment(faker.date.past()).format('YYYY-MM-DD'),
-  fullName: faker.name.findName(),
-  userType:faker.name.jobType(),
-  description:faker.name.jobTitle(),
+  userType: faker.system.fileName(),
+  description: faker.lorem.sentence(),
 });
 
 exports.seed = async function (knex) {
   const fakeUserTypes = [];
   const desiredFakeUserTypes = 100;
 
-  for (let i = 0; i < desiredFakeUserTypes; i += 1) {
+  for (let i = 0; i < desiredFakeUserTypes; i++) {
     fakeUserTypes.push(createFakeUserTypes());
   }
 
