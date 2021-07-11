@@ -45,7 +45,7 @@ const UserSignUp = (props) => {
                 <Form id="temp-div-signUp-form">
                   <div className="mb-2 pageheading">
                     <div className='col-sm-12 btn btn-primary' onClick={() => {window.location.href="/templates"}}>
-                      <i class="fas fa-arrow-circle-left"></i>&nbsp;  Back to Templates
+                      <i className="fas fa-arrow-circle-left"></i>&nbsp;  Back to Templates
                     </div>
                   </div>
                   <InputGroup className=' temp-div-signUp-mb-3'>
@@ -95,7 +95,7 @@ const UserSignUp = (props) => {
                   </InputGroup>
                   <InputGroup className='temp-div-signUp-mb-3'>
         
-                    <label for="gender">Male </label>
+                    <label htmlFor="gender">Male </label>
                     <Input
                       className="tempForm-signup-inputRadio"
                       type='radio'
@@ -105,7 +105,7 @@ const UserSignUp = (props) => {
                       name='gender'
                       value={gender}
                       placeholder='gender' ></Input>
-                      <label for="gender">Female </label>
+                      <label htmlFor="gender">Female </label>
                       <Input
                         className="tempForm-signup-inputRadio"
                       type='radio'
@@ -117,7 +117,7 @@ const UserSignUp = (props) => {
                       placeholder='gender' ></Input>
                   </InputGroup>
                   <InputGroup className='temp-div-signUp-mb-3'>
-                  <label for="dateOfBird">Birthday </label>
+                  <label htmlFor="dateOfBird">Birthday </label>
                     <Input
                       className="tempForm-signup-input"
                       type='date'

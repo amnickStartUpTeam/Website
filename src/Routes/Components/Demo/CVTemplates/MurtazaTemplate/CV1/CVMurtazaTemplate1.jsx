@@ -84,9 +84,9 @@ function About() {
 function SkillsSection() {
   return (
     <div className="CVMurtazaTemp_skills_section">
-      <h1 className="CVMurtazaTemp_skills_section_h1">
+      <div className="CVMurtazaTemp_skills_section_h1">
         <h1>My skills</h1>
-      </h1>
+      </div>
       <div className="CVMurtazaTemp_skills_">
         <span className="CVMurtazaTemp_skills_span">HTML</span>
         <ProgressBar className="CVMurtazaTemp_progress_bar" completed={100} />
@@ -258,24 +258,24 @@ function Forms() {
 function Footer() {
   return (
     <>
-      <div class="Murtaza_Tamp_footer">
-        <div class="Murtaza_Tamp_footer_inner_div">
-          <div class="Murtaza_Tamp_footer_social_links">
+      <div className="Murtaza_Tamp_footer">
+        <div className="Murtaza_Tamp_footer_inner_div">
+          <div className="Murtaza_Tamp_footer_social_links">
             <br></br>
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-facebook"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-facebook"></i>
             </a>
             <br />
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-instagram"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-twitter"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-twitter"></i>
             </a>
           </div>
           <div
             id="Murtaza_Tamp_footer_box_div"
-            class="Murtaza_Tamp_footer_boxes_div"
+            className="Murtaza_Tamp_footer_boxes_div"
           >
             <h1>
               <span>Contact</span> Info
@@ -283,17 +283,17 @@ function Footer() {
             <p>
               {" "}
               <span>
-                <i class="fas fa-phone"></i>&nbsp;+306947323829
+                <i className="fas fa-phone"></i>&nbsp;+306947323829
               </span>
               <br></br>
               <span>
-                <i class="fas fa-at"></i>&nbsp;johnsmith@gmail.com
+                <i className="fas fa-at"></i>&nbsp;johnsmith@gmail.com
               </span>
             </p>
           </div>
           <div
             id="Murtaza_Tamp_footer_boxs_12"
-            class="Murtaza_Tamp_footer_boxes_div"
+            className="Murtaza_Tamp_footer_boxes_div"
           ></div>
         </div>
       </div>
@@ -306,7 +306,7 @@ function SecondFooter() {
       <div className="blocks_murtaza_temp">
         <div
           id="Murtaza_Tamp_footer_box_div"
-          class="Murtaza_Tamp_footer_boxes_div"
+          className="Murtaza_Tamp_footer_boxes_div"
         >
           <h1>
             <span>Contact</span> Info
@@ -314,28 +314,28 @@ function SecondFooter() {
           <p>
             {" "}
             <span>
-              <i class="fas fa-phone"></i>&nbsp;+306947323829
+              <i className="fas fa-phone"></i>&nbsp;+306947323829
             </span>
             <br></br>
             <span>
-              <i class="fas fa-at"></i>&nbsp;johnsmith@gmail.com
+              <i className="fas fa-at"></i>&nbsp;johnsmith@gmail.com
             </span>
           </p>
         </div>
       </div>
       <div className="Murtaza_Tamp_footer_social_links">
         <br></br>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-facebook"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-facebook"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-youtube"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-youtube"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-instagram"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-instagram"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-twitter"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-twitter"></i>
         </a>
       </div>
     </div>

@@ -64,7 +64,7 @@ function Maindesc(){
       </div>
       <div className="CVMarTemp2-descr-right"> 
       
-        <video controls width="400" height="300" autoplay="true" muted class="CVMarTemp2-video" source src={MarVid} type="video/mp4" ></video>
+        <video controls width="400" height="300" autoPlay={true} muted className="CVMarTemp2-video" src={MarVid} type="video/mp4" ></video>
    
       </div>     
     </div>  
@@ -137,7 +137,7 @@ function Footer(){
             </ul>
           </div>
           <div className="CVMarTemp2-footer-cpw">
-            <p class="CVMarTemp2-footer-cpwcopyright">
+            <p className="CVMarTemp2-footer-cpwcopyright">
               Copyright &copy; 2021 by Hellen Elien.          
             </p>
           </div>

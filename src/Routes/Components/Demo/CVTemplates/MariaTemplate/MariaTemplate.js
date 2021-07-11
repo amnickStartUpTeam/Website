@@ -48,7 +48,7 @@ function MariaTemp(){
                 <div className="CVMarTemp-content">
                     <h1 className="CVMarTemp-content-h1"><span>Hi,</span> I'm Ben Doe</h1>
                     <h3>Web developer</h3>
-                    <button className="CVMarTemp-content-btn" onclick="">Download pdf</button>
+                    <button className="CVMarTemp-content-btn">Download pdf</button>
                     <div className="CVMarTemp-profile-info">
                         <p className="CVMarTemp-profile-infop"><FaMapMarkerAlt size={18} color='#0072b1'/>United Kingdom,London</p>
                         <p className="CVMarTemp-profile-infop"><TiMail size={18} color='#0072b1'/>xxxx@wwww.com</p>
@@ -64,7 +64,7 @@ function MariaTemp(){
                     <img src={user_sign} alt="user" className="CVMarTemp-sign_img"/>
                 </div>
             
-                <ul class="CVMarTemp-socialicons">
+                <ul className="CVMarTemp-socialicons">
                     <li><a href="#" className="CVMarTemp-socialicons-link" ><FaLinkedin size={30} color='#0072b1'/></a></li>
                     <li><a href="#" className="CVMarTemp-socialicons-link" > <FaTwitterSquare size={30} color='#1DA1F2'  /></a></li>
                     <li><a href="#" className="CVMarTemp-socialicons-link" > <FaFacebookSquare size={30} color='#4169E1'/></a></li>
