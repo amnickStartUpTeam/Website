@@ -49,7 +49,7 @@ const AboutNavLogo = styled(Link)`
     img {
         width: 50px;
         height: 50px;
-        border-radius 20%;
+        border-radius 50%;
     }
 `;
 
@@ -95,13 +95,13 @@ const AboutNavLinks = styled.a`
     font-size: 1rem;
     text-decoration: none;
     height: 100%;
-    margin: 0 1rem;
+    margin: 0 .8rem;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 
-    &.active {
-        border-bottom: 3px solid #2a9d8f;
-    }
+    // &.active {
+    //     border-bottom: 3px solid #2a9d8f;
+    // }
 
     &:hover {
         transition: all 0.2s ease-in-out;
@@ -180,13 +180,20 @@ function AboutMenu({ aboutToggle }) {
             </AboutMobileIcon >
             <AboutNavMenu>
               <AboutNavItem>
-                <AboutNavLinks to="/">Home</AboutNavLinks>
+                {/* <AboutNavLinks to="/">Home</AboutNavLinks> */}
+                <AboutNavLinks href="/" onClick={aboutToggle}>Home</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>
-                <AboutNavLinks to="/signUp">Sign Up</AboutNavLinks>
+                {/* <AboutNavLinks to="/templates">CV_Templates</AboutNavLinks> */}
+                <AboutNavLinks href="/templates" onClick={aboutToggle}>CV_Templates</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>
-                <AboutNavLinks to="/login">Sign In</AboutNavLinks>
+                {/* <AboutNavLinks to="/signUp">Sign Up</AboutNavLinks> */}
+                <AboutNavLinks href="/signUp">Sign Up</AboutNavLinks>
+              </AboutNavItem>
+              <AboutNavItem>
+                {/* <AboutNavLinks to="/login">Sign In</AboutNavLinks> */}
+                <AboutNavLinks href="/login">Sign In</AboutNavLinks>
               </AboutNavItem>
               <div className="language-select">
             
@@ -219,10 +226,9 @@ function AboutMenu({ aboutToggle }) {
                   </div>
               </div>
               <AboutNavBtn>
-                <AboutBtnLink to="/contactUs">Contact Us</AboutBtnLink>
+                {/* <AboutBtnLink to="/contactUs">Contact Us</AboutBtnLink> */}
+                <AboutBtnLink href="mailto:sdsd@sdsdsdsd.com">Contact Us</AboutBtnLink>
               </AboutNavBtn>
-
-              
             </AboutNavMenu>
           </AboutNavContainer>
         </AboutNav>

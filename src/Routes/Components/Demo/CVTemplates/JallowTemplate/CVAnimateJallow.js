@@ -67,11 +67,11 @@ function Header() {
 
                     <div className='JAnimatedNavItem'> 
                         <a href='http://localhost:3000/templates' className='JAnimatedNavList'>Back</a>
-                        <a href='#' className='JAnimatedNavList'>Code shop</a>
-                        <a href='#' className='JAnimatedNavList'>Portfolio</a>
-                        <a href='#' className='JAnimatedNavList'>Resume</a>
-                        <a href='#' className='JAnimatedNavList'>About</a>
-                        <a href='#' className='JAnimatedNavList'>Blog</a>
+                        <a href='#JAniCodeShop' className='JAnimatedNavList'>Code shop</a>
+                        <a href='#JAniPortfolio' className='JAnimatedNavList'>Portfolio</a>
+                        <a href='#JAniResume' className='JAnimatedNavList'>Resume</a>
+                        <a href='#JAniAbout' className='JAnimatedNavList'>About</a>
+                        <a href='#JAniBlog' className='JAnimatedNavList'>Blog</a>
                     </div>
                     <div className='JAnimatedButton'>
                         <a href='#' className='JAnimatedPDF'>Dowload PDF</a>
@@ -112,7 +112,7 @@ function Name(){
 
 function Passion(){
     return(
-        <section className='JAnimatedPassion'>
+        <section className='JAnimatedPassion' id='JAniCodeShop'>
             <div className='JAnimatedPassContent'>
                 <div className='JAnimatedPassImg' data-aos="fade-right">
                     <img src={Coffee} alt='' width='200px' height='300' />
@@ -128,7 +128,7 @@ function Passion(){
 
 function Services(){
     return(
-        <section className='JAnimatedServices'>
+        <section className='JAnimatedServices' id='JAniResume'>
             <div className='JAnimatedServContainer'>
                 <h2 className="JAnimatedServTitle">I also provide high-quality Squarespace plugins, snippets, training and more.</h2>
 
@@ -159,7 +159,7 @@ function Services(){
 
 function Projects(){
     return(
-        <section className='JAnimatedProjects'>
+        <section className='JAnimatedProjects' id='JAniProject'>
             <div className='JAnimatedProContainer' data-aos="fade-right">
                 <h2 className='JAnimatedProTitle'>Squarespace projects.</h2>
                 <p className='JAnimatedProDescrip'>Work with local, as well as, international clients has become an amazing opportunity that I don't take for granted. Take a look at my latest Squarespace projects that I’ve been busy working on.</p>
@@ -217,7 +217,7 @@ function Projects(){
 
 function About(){
     return(
-        <section className='JAnimatedAbout'>
+        <section className='JAnimatedAbout' id='JAniAbout'>
             <div className='JAnimatedAbtContent' data-aos="fade-down">
                 <h2 className='JAnimatedAbtHead'>Understanding My Passion</h2>
                 <p className='JAnimatedAbtDescript'>There's something to be said about working with passionate business owners that truly love what they do. I’m no different. I started my business because I honestly enjoy coming to work every day to create something beautiful that has the ability to impact others.</p>
@@ -251,7 +251,7 @@ function Office (){
 
 function LifeDesign(){
     return(
-        <section className='JAnimatedLifeDesign'>
+        <section className='JAnimatedLifeDesign' id='JAniPortfolio'>
             <div className='JAnimatedLifeContainer' data-aos="fade-right">
                 <h2 className="JAnimatedLifeTitle">My life as a Squarespace designer.</h2>
 
@@ -298,7 +298,7 @@ function LifeDesign(){
 
 function BlogPost() {
     return(
-        <section className='JAnimatedBlog'>
+        <section className='JAnimatedBlog' id='JAniBlog'>
             <div  className='JAnimatedBlogPost' data-aos="fade-left">
                 <h2 className='JAnimatedBlogTitle'>My latest blog posts</h2>
                 <div className='JAnimatedVlogCon'>
@@ -348,13 +348,13 @@ function Footer(){
                 <nav className='JAnimatedFootNav'>
                     <div className='JAnimatedFootItem'>
                         <a href='#' className='JAnimatedFootLink'>Home</a>
-                        <a href='#' className='JAnimatedFootLink'>Code shop</a>
-                        <a href='#' className='JAnimatedFootLink'>Portfolio</a>
-                        <a href='#' className='JAnimatedFootLink'>About</a>
-                        <a href='#' className='JAnimatedFootLink'>Resume</a>
-                        <a href='#' className='JAnimatedFootLink'>Blog</a>
-                        <a href='#' className='JAnimatedFootLink'>Press</a>
-                        <a href='#' className='JAnimatedFootLink'>Contact</a>
+                        <a href='#JAniCodeShop' className='JAnimatedFootLink'>Code shop</a>
+                        <a href='#JAniPortfolio' className='JAnimatedFootLink'>Portfolio</a>
+                        <a href='#JAniResume' className='JAnimatedFootLink'>Resume</a>
+                        <a href='#JAniProject' className='JAnimatedFootLink'>Projects</a>
+                        <a href='#JAniBlog' className='JAnimatedFootLink'>Blog</a>
+                        <a href='#JAniAbout' className='JAnimatedFootLink'>About</a>
+                        <a href="mailto:sdsd@sdsdsdsd.com" className='JAnimatedFootLink'>Contact</a>
                     </div>
                 </nav>
 

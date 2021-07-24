@@ -38,27 +38,27 @@ function CVTemplateJallow2() {
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#experience' className='jallowCVTNavLink'>Experience</a>
+                    <a href='#jumpToExpPart' className='jallowCVTNavLink'>Experience</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#education' className='jallowCVTNavLink'>Education</a>
+                    <a href='#jumpToEduPart' className='jallowCVTNavLink'>Education</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#clients' className='jallowCVTNavLink'>Clients</a>
+                    <a href='#jumpToCliPart' className='jallowCVTNavLink'>Clients</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#skills' className='jallowCVTNavLink'>Skills</a>
+                    <a href='#jumpToSkillsPart' className='jallowCVTNavLink'>Skills</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#espertise' className='jallowCVTNavLink'>Expertise</a>
+                    <a href='#jumpToExpertPart' className='jallowCVTNavLink'>Expertise</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>
-                    <a href='#contact' className='jallowCVTNavLink'>Contact</a>
+                    <a href='#jumpToContPart' className='jallowCVTNavLink'>Contact</a>
                   </li>
                 </ul>
               </div>
@@ -114,7 +114,7 @@ function CVTemplateJallow2() {
             </section>
 
             {/* <!--========== EXPERIENCE ==========--> */}
-            <section className='jallowCVTExpSection' data-aos="fade-right">
+            <section className='jallowCVTExpSection' id='jumpToExpPart' data-aos="fade-right">
               <h2 className="jallowCVTSectionTitle">Experience</h2>
 
               <div className='jalowCVTExpContainer'>
@@ -160,7 +160,7 @@ function CVTemplateJallow2() {
               </div>
             </section>
 
-            <section className='jallowCVTEduSection' data-aos="fade-left">
+            <section className='jallowCVTEduSection' id='jumpToEduPart' data-aos="fade-left">
               <h2 className="jallowCVTSectionTitle">Education</h2>
 
               <div className='jalowCVTEduContainer'>
@@ -210,7 +210,7 @@ function CVTemplateJallow2() {
             </section>
 
             {/* <!--========== INTERESTS ==========--> */}
-            <section className='jallowCVTCliSection' data-aos="fade-right">
+            <section className='jallowCVTCliSection' id='jumpToCliPart' data-aos="fade-right">
               <h2 className="jallowCVTSectionTitle">Client</h2>
 
               <div className='jallowCVTCliContainer'>
@@ -238,7 +238,7 @@ function CVTemplateJallow2() {
             </section>
 
             {/* <!--========== SKILLS ==========--> */}
-            <section className='jallowCVTSkillSection jallowCVTSkills' data-aos="fade-left">
+            <section className='jallowCVTSkillSection jallowCVTSkills' id='jumpToSkillsPart' data-aos="fade-left">
               <h2 className="jallowCVTSectionTitle jallowCVTSkillsTitle">skills</h2>
 
               <div className='jallowCVTSkillContent'>
@@ -274,7 +274,7 @@ function CVTemplateJallow2() {
               </div>
             </section>
 
-            <section className='jallowCVTExpertSection' data-aos="fade-right">
+            <section className='jallowCVTExpertSection' id='jumpToExpertPart' data-aos="fade-right">
               <h2 className="jallowCVTSectionTitle">Expertise</h2>
 
               <div className='jallowCVTExpertContent'>
@@ -295,7 +295,7 @@ function CVTemplateJallow2() {
               </div>
             </section>
 
-            <section className='jallowCVTContactSection  ProfSectionJallow' data-aos="fade-left">
+            <section className='jallowCVTContactSection  ProfSectionJallow' id='jumpToContPart' data-aos="fade-left">
             <h2 className="jallowCVTSectionTitle">Contact Me</h2>
 
               <div className='jallowCVTContactFolder'>
