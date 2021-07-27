@@ -1,11 +1,14 @@
-import React from "react";
+import React,  {useState, useEffect} from "react";
 import ProgressBar from "@ramonak/react-progress-bar";
-import codepen from "./imgs/codepen.png";
-import github from "./imgs/github.png";
-import linkedin from "./imgs/linkedin.png";
 import "../../../../../css/CVMurtazaTemplate.css";
-import MurtazaTampReview from "./MurtazaTampReview";
 import { ImArrowLeft2 } from "react-icons/im";
+
+
+// languages import
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import cookies from "js-cookie";
+import classNames from "classnames";
 
 function Home_Cv() {
   return (
@@ -21,7 +24,32 @@ function Home_Cv() {
   );
 }
 
+// Language implementation
+const languages = [
+  {
+    code: "en",
+    country_code: "gb",
+  },  
+{
+    code: "gr",
+    country_code: "gr",
+  }
+];
+
 function Background() {
+  const [toggle, setToggle] = useState(false);
+  // language implementation
+  const currentLanguageCode = cookies.get("i18next") || "en";
+  const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
+  const { t } = useTranslation();
+
+      // language implementation
+  useEffect(() => {
+    document.body.dir = currentLanguage.dir || "ltr";
+    document.title = t("appTitle");
+  }, [currentLanguage, t]);
+
+
   return (
     <div className="CVMurtazaTemp_background">
       <div className="CVMurtazaTemp_go_back_div">
@@ -34,9 +62,9 @@ function Background() {
       </div>
       <div className="CVMurtazaTemp_top_container">
         <h1>
-          Hello, I'm Murtaza Hassani.
+          {t("murtazaCvName")}
           <br />
-          I'm a Full Stack Web Developer.
+          {t("murtazaCvTitle")}
         </h1>
 
         <button className="CVMurtazaTemp_work_button " data-wow-offset="0">
@@ -47,6 +75,32 @@ function Background() {
         <button className="btn_download">
           <a href="/MurtazaTampReview">See an example</a>
         </button>
+        <div>
+        <div>
+          <ul className="dropdown__MY_CV">
+            {languages.map(({ code, country_code }) => (
+              <li key={country_code}  className="dropdown__MY_CV_li">
+                <a
+                  href="#!"
+                  className={classNames("dropdown-item", {
+                    disabled: currentLanguageCode === code,
+                  })}
+                  onClick={() => {
+                    i18next.changeLanguage(code);
+                  }}
+                >
+                  <span
+                    className={`flag-icon flag-icon-${country_code} mx-2`}
+                    style={{
+                      opacity: currentLanguageCode === code ? 0.7 : 1,
+                    }}
+                  ></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        </div>
       </div>
     </div>
   );
@@ -258,24 +312,24 @@ function Forms() {
 function Footer() {
   return (
     <>
-      <div class="Murtaza_Tamp_footer">
-        <div class="Murtaza_Tamp_footer_inner_div">
-          <div class="Murtaza_Tamp_footer_social_links">
+      <div className="Murtaza_Tamp_footer">
+        <div className="Murtaza_Tamp_footer_inner_div">
+          <div className="Murtaza_Tamp_footer_social_links">
             <br></br>
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-facebook"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-facebook"></i>
             </a>
             <br />
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-instagram"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" class="Murtaza_Tamp_social_icons">
-              <i class="fab fa-twitter"></i>
+            <a href="#" className="Murtaza_Tamp_social_icons">
+              <i className="fab fa-twitter"></i>
             </a>
           </div>
           <div
             id="Murtaza_Tamp_footer_box_div"
-            class="Murtaza_Tamp_footer_boxes_div"
+            className="Murtaza_Tamp_footer_boxes_div"
           >
             <h1>
               <span>Contact</span> Info
@@ -283,17 +337,17 @@ function Footer() {
             <p>
               {" "}
               <span>
-                <i class="fas fa-phone"></i>&nbsp;+306947323829
+                <i className="fas fa-phone"></i>&nbsp;+306947323829
               </span>
               <br></br>
               <span>
-                <i class="fas fa-at"></i>&nbsp;johnsmith@gmail.com
+                <i className="fas fa-at"></i>&nbsp;johnsmith@gmail.com
               </span>
             </p>
           </div>
           <div
             id="Murtaza_Tamp_footer_boxs_12"
-            class="Murtaza_Tamp_footer_boxes_div"
+            className="Murtaza_Tamp_footer_boxes_div"
           ></div>
         </div>
       </div>
@@ -306,7 +360,7 @@ function SecondFooter() {
       <div className="blocks_murtaza_temp">
         <div
           id="Murtaza_Tamp_footer_box_div"
-          class="Murtaza_Tamp_footer_boxes_div"
+          className="Murtaza_Tamp_footer_boxes_div"
         >
           <h1>
             <span>Contact</span> Info
@@ -314,28 +368,28 @@ function SecondFooter() {
           <p>
             {" "}
             <span>
-              <i class="fas fa-phone"></i>&nbsp;+306947323829
+              <i className="fas fa-phone"></i>&nbsp;+306947323829
             </span>
             <br></br>
             <span>
-              <i class="fas fa-at"></i>&nbsp;johnsmith@gmail.com
+              <i className="fas fa-at"></i>&nbsp;johnsmith@gmail.com
             </span>
           </p>
         </div>
       </div>
       <div className="Murtaza_Tamp_footer_social_links">
         <br></br>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-facebook"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-facebook"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-youtube"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-youtube"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-instagram"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-instagram"></i>
         </a>
-        <a href="#" class="Murtaza_Tamp_social_icons">
-          <i class="fab fa-twitter"></i>
+        <a href="#" className="Murtaza_Tamp_social_icons">
+          <i className="fab fa-twitter"></i>
         </a>
       </div>
     </div>

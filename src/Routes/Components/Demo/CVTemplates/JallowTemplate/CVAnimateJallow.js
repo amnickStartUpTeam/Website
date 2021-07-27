@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import "../../../../css/CVJallowTemplateAn1.css";
 import Brand from './imgs/Animate-imgs/brand-dark.png';
 
@@ -28,6 +28,13 @@ import Vlog3 from './imgs/Animate-imgs/bp3.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+
+// languages import
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import cookies from "js-cookie";
+import classNames from "classnames";
+
 function CVAnimateJallow() {
     AOS.init({
         offset: 300,
@@ -52,49 +59,134 @@ function CVAnimateJallow() {
     )
 }
 
+// Language implementation
+
+const languages = [
+  {
+    code: "en",
+    country_code: "gb",
+  },  
+{
+    code: "gr",
+    country_code: "gr",
+  }
+  ];
+  
 function Header() { 
-    return(
-        <header className='JAnimatedHeader'>
-            <div className='JAnimatedHeaderInner JAnimatedHeaderInContent'>
-                <div className='JAnimatedHeaderMenu' data-aos="fade-down">
-                    <a className='JAnimatedBrand'><img src={Brand} alt='Brand' /></a>
-                </div>
+    const currentLanguageCode = cookies.get("i18next") || "en";
+    const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
+    const { t } = useTranslation();
+  
+    useEffect(() => {
+      document.body.dir = currentLanguage.dir || "ltr";
+      document.title = t("appTitle");
+    }, [currentLanguage, t]);
+  
+    return (
+      <header className="JAnimatedHeader">
+        <div className="JAnimatedHeaderInner JAnimatedHeaderInContent">
+          <div className="JAnimatedHeaderMenu" data-aos="fade-down">
+            <a className="JAnimatedBrand">
+              <img src={Brand} alt="Brand" />
+            </a>
+          </div>
 
-                <nav className='JAnimatedNav'>
-                    <input type='checkbox' id='check' />
-                    <label htmlFor='check' className='CVTCheckIcon'><i class="fas fa-bars"></i></label>
+          <nav className="JAnimatedNav">
+            <input type="checkbox" id="check" />
+            <label htmlFor="check" className="CVTCheckIcon">
+              <i className="fas fa-bars"></i>
+            </label>
 
-
-                    <div className='JAnimatedNavItem'> 
-                        <a href='http://localhost:3000/templates' className='JAnimatedNavList'>Back</a>
-                        <a href='#' className='JAnimatedNavList'>Code shop</a>
-                        <a href='#' className='JAnimatedNavList'>Portfolio</a>
-                        <a href='#' className='JAnimatedNavList'>Resume</a>
-                        <a href='#' className='JAnimatedNavList'>About</a>
-                        <a href='#' className='JAnimatedNavList'>Blog</a>
-                    </div>
-                    <div className='JAnimatedButton'>
-                        <a href='#' className='JAnimatedPDF'>Dowload PDF</a>
-                    </div>
-                </nav>
+            <div className="JAnimatedNavItem">
+              <a
+                href="http://localhost:3000/templates"
+                className="JAnimatedNavList"
+              >
+                Back
+              </a>
+              <a href="#" className="JAnimatedNavList">
+                Code shop
+              </a>
+              <a href="#" className="JAnimatedNavList">
+                Portfolio
+              </a>
+              <a href="#" className="JAnimatedNavList">
+                Resume
+              </a>
+              <a href="#" className="JAnimatedNavList">
+                About
+              </a>
+              <a href="#" className="JAnimatedNavList">
+                Blog
+              </a>
+                <div className="dropdown">
+                  <ul
+                    className="dropdown-menu-in-jallow-cv"
+                  >
+                    {languages.map(({ code, country_code }) => (
+                      <li key={country_code}                     
+                      className="dropdown-menu-in-jallow-cv-li"
+                      >
+                        <a
+                          href="#"
+                          className={classNames("dropdown-item", {
+                            disabled: currentLanguageCode === code,
+                          })}
+                          onClick={() => {
+                            i18next.changeLanguage(code);
+                          }}
+                        >
+                          <span
+                            className={`flag-icon flag-icon-${country_code} mx-2`}
+                            style={{
+                              opacity: currentLanguageCode === code ? 0.7 : 1,
+                            }}
+                          ></span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+              </div>
             </div>
-        </header>
-    )
+            <div className="JAnimatedButton">
+              <a href="#" className="JAnimatedPDF">
+                Dowload PDF
+              </a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    );
 }
 
 function SectionHeader () {
-    return(
-        <section className='JAnimatedSectHead'>
-            <div className="JAnimatedSectContent">
-                <video className='JAnimatedVideo' src={Background}autoPlay loop muted />
-                <h1 className='JAnimatedSectHeading'>Squarespace <br /><span>Developer.</span></h1>
-                <div className="JAnimatedHeadBtns">
-                    <a className='JAnimatedBtns1'>HIRE ME TODAY</a>
-                    <a href='#JAniLaptopVidPlayer' className='JAnimatedBtns2'>WATCH VIDEO<i className="far fa-play-circle" /></a>
-                </div>
-            </div>
-        </section>
-    )
+    const { t } = useTranslation();
+
+    return (
+      <section className="JAnimatedSectHead">
+        <div className="JAnimatedSectContent">
+          <video
+            className="JAnimatedVideo"
+            src={Background}
+            autoPlay
+            loop
+            muted
+          />
+          <h1 className="JAnimatedSectHeading">
+            {t("jallowCvTitle")}
+            <br />
+            <span> {t("jallowCvTitle_1")}</span>
+          </h1>
+          <div className="JAnimatedHeadBtns">
+            <a className="JAnimatedBtns1">HIRE ME TODAY</a>
+            <a href="#JAniLaptopVidPlayer" className="JAnimatedBtns2">
+              WATCH VIDEO
+              <i className="far fa-play-circle" />
+            </a>
+          </div>
+        </div>
+      </section>
+    );
 }
 
 function Name(){
@@ -150,7 +242,7 @@ function Services(){
                 </div>
 
                 <div className='JAnimatedServBtn'>
-                    <a href='#'>Squarespace code shop <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a href='#'>Squarespace code shop <i className="fas fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </section>
@@ -170,7 +262,7 @@ function Projects(){
                             <img src={CoffeeShop} />
                         </div>
                         <div className="JAnimatedBackCard">
-                            <div class="JAnimateBackContent JAnimatedMiddle">
+                            <div className="JAnimateBackContent JAnimatedMiddle">
                                 <p className='AnimateP1'>Coffee Shop & Roaster</p>
                                 <p className='AnimateP2'>Elementry</p>
                                 <a href='#' className='AnimateAnka'>view Project</a>
@@ -196,7 +288,7 @@ function Projects(){
                             <img src={WeddingDJ} />
                         </div>
                         <div className="JAnimatedBackCard">
-                            <div class="JAnimateBackContent JAnimatedMiddle">
+                            <div className="JAnimateBackContent JAnimatedMiddle">
                             <p className='AnimateP1'>Personal Brand</p>
                                 <p className='AnimateP2'>Jason KLock</p>
                                 <a href='#' className='AnimateAnka'>view Project</a>
@@ -207,7 +299,7 @@ function Projects(){
                 </div>
 
                 <div className='JAnimatedProBtn'>
-                    <a href='#'>More Squarespace Projects <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a href='#'>More Squarespace Projects <i className="fas fa-long-arrow-alt-right"></i></a>
                 </div>
 
             </div>
@@ -242,7 +334,7 @@ function Office (){
                 <p className='JAnimatedOffDescript'>Need help from a Squarespace expert? <br />Let’s discuss your needs in detail.</p>
 
                 <div className='JAnimatedServBtn'>
-                    <a href='#'>I'm here to help you <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a href='#'>I'm here to help you <i className="fas fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </section>
@@ -289,7 +381,7 @@ function LifeDesign(){
                 </div>
 
                 <div className='JAnimatedProBtn'>
-                    <a href='#'>More Squarespace Projects <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a href='#'>More Squarespace Projects <i className="fas fa-long-arrow-alt-right"></i></a>
                 </div>
             </div>
         </section>
@@ -328,7 +420,7 @@ function BlogPost() {
                 </div>
 
                 <div className='JAnimatedProBtn'>
-                    <a href='#'>More Squarespace Projects <i class="fas fa-long-arrow-alt-right"></i></a>
+                    <a href='#'>More Squarespace Projects <i className="fas fa-long-arrow-alt-right"></i></a>
                 </div>
 
             </div>
@@ -370,11 +462,11 @@ function Footer(){
                 </div>
 
                 <div className='JAnimatedSoicalIcons'>
-                    <i class="fab fa-facebook icon" ></i>
-                    <i class="fab fa-instagram icon" ></i>
-                    <i class="fab fa-linkedin icon" ></i>
-                    <i class="fab fa-youtube icon" ></i>
-                    <i class="fas fa-envelope icon" ></i>
+                    <i className="fab fa-facebook icon" ></i>
+                    <i className="fab fa-instagram icon" ></i>
+                    <i className="fab fa-linkedin icon" ></i>
+                    <i className="fab fa-youtube icon" ></i>
+                    <i className="fas fa-envelope icon" ></i>
                 </div>
             </div>
         </footer>

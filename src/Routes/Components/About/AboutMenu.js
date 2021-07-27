@@ -147,14 +147,14 @@ const AboutBtnLink =styled.a`
 
 // implementation languages
 const languages = [
-    {
-      code: "en",
-      country_code: "gb",
-    },
-    {
-      code: "gr",
-      country_code: "gr",
-    },
+  {
+    code: "en",
+    country_code: "gb",
+  },  
+{
+    code: "gr",
+    country_code: "gr",
+  }
   ];
   
 function AboutMenu({ aboutToggle }) {
@@ -164,7 +164,7 @@ function AboutMenu({ aboutToggle }) {
   
     useEffect(() => {
       document.body.dir = currentLanguage.dir || "ltr";
-      document.title = t("app_title");
+      document.title = t("appTitle");
     }, [currentLanguage, t]);
   
     return (
@@ -180,13 +180,13 @@ function AboutMenu({ aboutToggle }) {
             </AboutMobileIcon >
             <AboutNavMenu>
               <AboutNavItem>
-                <AboutNavLinks to="/">Home</AboutNavLinks>
+                <AboutNavLinks href="/">Home</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>
-                <AboutNavLinks to="/signUp">Sign Up</AboutNavLinks>
+                <AboutNavLinks href="/signUp">Sign Up</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>
-                <AboutNavLinks to="/login">Sign In</AboutNavLinks>
+                <AboutNavLinks href="/login">Sign In</AboutNavLinks>
               </AboutNavItem>
               <div className="language-select">
             
