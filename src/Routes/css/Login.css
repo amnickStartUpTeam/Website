@@ -71,6 +71,9 @@
 .login-remember{
   opacity: 0.7;
 }
+.login-remember{
+  opacity: 0.7;
+}
 
 .login-btn {
   align-self: center;
@@ -122,4 +125,14 @@
     margin-top: 0px;
     margin-bottom: 0px;
   }
+}
+
+.dropdown_menu_sign_in {
+  display: flex;
+  color: hsl(120deg 100% 25%);
+  justify-content: center;
+  font-size: 26px;
+}
+.dropdown_menu_sign_in_li {
+  padding: 4px;
 }

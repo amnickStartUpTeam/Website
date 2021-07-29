@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component, useEffect } from 'react';
 import Pdf from "react-to-pdf";
 import profile1 from './imgs/profile1.png'
 import "../../../../css/CVJallowTemplate1.css";
+
+// languages import
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import cookies from "js-cookie";
+import classNames from "classnames";
 
 const ref = React.createRef();
 
@@ -12,8 +18,8 @@ function NavbarLogo() {
                 <img src='https://cdn5.vectorstock.com/i/1000x1000/92/29/initial-letter-cv-logo-template-design-vector-21949229.jpg' width="70px" height="60px" alt='logo' />
             </div>
             <div className='jallowTemp1IconLogo'>
-                <a href="#"><i class="fas fa-mobile"></i></a>
-                <a href="#"><i class='fas fa-tablet'></i></a>
+                <a href="#"><i className="fas fa-mobile"></i></a>
+                <a href="#"><i className='fas fa-tablet'></i></a>
             </div>
         </div>
     )
@@ -28,7 +34,29 @@ function Toggle() {
     )
 }
 
+// Language implementation
+const languages = [
+  {
+    code: "en",
+    country_code: "gb",
+  },  
+{
+    code: "gr",
+    country_code: "gr",
+  }
+  ];
 function Menu() {
+    // language implementation
+    const currentLanguageCode = cookies.get("i18next") || "en";
+    const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
+    const { t } = useTranslation();
+  
+        // language implementation
+    useEffect(() => {
+      document.body.dir = currentLanguage.dir || "ltr";
+      document.title = t("appTitle");
+    }, [currentLanguage, t]);
+  
     return(
         <div>
             <Toggle />
@@ -36,7 +64,33 @@ function Menu() {
                 <li className='jallowTemp1MenuLink jallowTempBack'><a href='http://localhost:3000/templates'>Back</a></li>
                 <li className='jallowTemp1MenuLink'><a href='#'>Resume</a></li>
                 <li className='jallowTemp1MenuLink'><a href='#'>Portfolio</a></li>
+           
+                  <ul
+                    className="jallow_cv_template"
+                  >
+                    {languages.map(({ code, country_code }) => (
+                      <li key={country_code} className="jallow_cv_template_li">
+                        <a
+                          href="#!"
+                          className={classNames("dropdown-item", {
+                            disabled: currentLanguageCode === code,
+                          })}
+                          onClick={() => {
+                            i18next.changeLanguage(code);
+                          }}
+                        >   
+                          <span
+                            className={`flag-icon flag-icon-${country_code} mx-2`}
+                            style={{
+                              opacity: currentLanguageCode === code ? 0.7 : 1,
+                            }}
+                          ></span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
             </ul>
+            
         </div>
     )
 }
@@ -63,25 +117,25 @@ function JallowTemplate1() {
                                 </div>
                                 <div className='jallowTemp1InfoDetails'>
                                     <div className='jallowTemp1Contact'>
-                                        <i class="fas fa-user-tie"></i>
+                                        <i className="fas fa-user-tie"></i>
                                         <p>My journey to became a professional developer as been inspiring, having coding engaged with so many Bootcam and Startups was a challang and so experience. Meeting Professional developers was a step forward to reach my goals today.</p>
                                     </div>
                                     <div className='jallowTemp1Contact'>
-                                    <i class="fas fa-phone-alt"></i>
+                                    <i className="fas fa-phone-alt"></i>
                                         <div className='jallowTemp1TestCol'>
                                             <p>(+30) 55 99 5555</p>
                                             <p>(+30) 555 999 5555</p>
                                         </div>
                                     </div>
                                     <div className='jallowTemp1Contact'>
-                                        <i class="fas fa-envelope"></i>
+                                        <i className="fas fa-envelope"></i>
                                         <div className='jallowTemp1TestCol'>
                                             <p>info@mail.com</p>
                                             <p>email@mail.com</p>
                                         </div>
                                     </div>
                                     <div className='jallowTemp1Contact'>
-                                        <i class="fas fa-map"></i>
+                                        <i className="fas fa-map"></i>
                                         <div className='jallowTemp1TestCol'>
                                             <p>101 Street Avenue</p>
                                             <p>Omonia Street 105</p>
@@ -89,7 +143,7 @@ function JallowTemplate1() {
                                     </div>
                                     <div className='jallowTemp1Contact'>
                                         <div className='jallowTemp1SkillsPersonal'>
-                                            <p className='jallowTemp1Skills'><i class="far fa-file"></i>Personal skills</p>
+                                            <p className='jallowTemp1Skills'><i className="far fa-file"></i>Personal skills</p>
                                             <ul className='jallowTemp1ContactSkills'>
                                                 <li>Adobe Photoshop</li>
                                                 <li>HTML 5 & CSS 3</li>
@@ -104,7 +158,7 @@ function JallowTemplate1() {
                             <div className='jallowTemp1Body'>
                                 <div className='jallowTemp1ContentSide'>
                                     <div className='jallowTemp1ContentSubSec'>
-                                        <h1 className='jallowTemp1ContentH1'><i class="fas fa-check-double"></i> Work Experience</h1>
+                                        <h1 className='jallowTemp1ContentH1'><i className="fas fa-check-double"></i> Work Experience</h1>
                                         <p className='jallowTemp1ContentTitle'>UI SOFTWARE ENGINEER @ Amnick</p>
                                         <p className='jallowTemp1ContentDate'>JAN 2021 - Present</p>
                                         <p className='jallowTemp1ContentInfo'>HCL Volt MX supports business and IT leadership to focus on high-value digital and operational strategic initiatives. Developing a dev-up platform that empowers professional developers, enterprise architects, and digital designers to rapidly deliver consumer-grade apps.</p>
@@ -118,7 +172,7 @@ function JallowTemplate1() {
                                     
                                 <div className='jallowTemp1ContentSide'>
                                     <div className='jallowTemp1ContentSubSec'>
-                                        <h1 className='jallowTemp1ContentH1'><i class="fas fa-graduation-cap"></i> Education</h1>
+                                        <h1 className='jallowTemp1ContentH1'><i className="fas fa-graduation-cap"></i> Education</h1>
                                         <p className='jallowTemp1ContentTitle'>Full Stack Developer @ Social Hackers Academy</p>
                                         <p className='jallowTemp1ContentDate'>SEP 2018 - DEC 2020</p>
                                         <p className='jallowTemp1ContentInfo'>Full Stack web developer at (SHA) Institution Studies. Study the most advance tech languages on how to built dynamic websites using React, Angular, Jquery, Nodejs Javascript, HTML and CSS.</p>
@@ -140,13 +194,13 @@ function JallowTemplate1() {
                                 </div>
 
                                 <div className='jallowTemp1ContentSide'>
-                                    <p className='jallowTemp1ContentInterest'><i class="fas fa-stopwatch"></i> Interests</p>
+                                    <p className='jallowTemp1ContentInterest'><i className="fas fa-stopwatch"></i> Interests</p>
                                         <div className='jallowTemp1ContentHobbies'>
-                                        <i class="fas fa-guitar"></i>
-                                        <i class="fas fa-plane"></i>
-                                        <i class="far fa-futbol"></i>
-                                        <i class="fas fa-book-open"></i>
-                                        <i class="fas fa-code"></i>
+                                        <i className="fas fa-guitar"></i>
+                                        <i className="fas fa-plane"></i>
+                                        <i className="far fa-futbol"></i>
+                                        <i className="fas fa-book-open"></i>
+                                        <i className="fas fa-code"></i>
                                         </div>
                                 </div>
                             </div>
