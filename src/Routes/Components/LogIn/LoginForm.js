@@ -20,6 +20,7 @@ const languages = [
     country_code: 'gr',
   },
 ];
+
 const LoginForm = () => {
   // language implementation
   const currentLanguageCode = cookies.get('i18next') || 'en';
