@@ -3,39 +3,39 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faIcons } from '@fortawesome/free-solid-svg-icons';
 import '../../css/FillForm.css';
 
-const Form = ({ edu, sectionToProcess, handleChange, handleEduChange }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const { school, degree, startDate, endDate, city } = edu;
+const Form = ({ exp, sectionToProcess, handleChange, handleExpChange }) => {
+  const [Expanded, setExpanded] = useState(false);
+  const { jobTitle, employer, dateStart, dateEnd, place } = exp;
   const labelsInfo = [
     {
-      id: 'school',
-      name: 'School',
+      id: 'jobTitle',
+      name: 'Job Title',
       type: 'text',
-      value: school,
+      value: jobTitle,
     },
     {
-      id: 'degree',
-      name: 'Degree',
+      id: 'employer',
+      name: 'Employer',
       type: 'text',
-      value: degree,
+      value: employer,
     },
     {
-      id: 'startDate',
-      name: 'Start',
+      id: 'dateStart',
+      name: 'Date Start',
       type: 'text',
-      value: startDate,
+      value: dateStart,
     },
     {
-      id: 'endDate',
-      name: 'End Date',
+      id: 'dateEnd',
+      name: 'Date End',
       type: 'text',
-      value: endDate,
+      value: dateEnd,
     },
     {
-      id: 'city',
-      name: 'City',
+      id: 'place',
+      name: 'Place',
       type: 'text',
-      value: city,
+      value: place,
     },
   ];
 
@@ -49,12 +49,12 @@ const Form = ({ edu, sectionToProcess, handleChange, handleEduChange }) => {
         type={el.type}
         name={el.id}
         value={el.value}
-        onChange={(e) => handleEduChange(el.id, e.target.value)}
+        onChange={(e) => handleExpChange(el.id, e.target.value)}
       />
     </form>
   ));
   const handleExpand = () => {
-    setIsExpanded((prev) => !prev);
+    setExpanded((prev) => !prev);
   };
 
   return (
@@ -66,14 +66,14 @@ const Form = ({ edu, sectionToProcess, handleChange, handleEduChange }) => {
             : `${state.degree} at ${state.school}`} */}
         </p>
         <FontAwesomeIcon
-          icon={isExpanded ? faChevronUp : faChevronDown}
+          icon={Expanded ? faChevronUp : faChevronDown}
           onClick={handleExpand}
           className='fillFormIconChevron'
         />
       </div>
       <div
         className={
-          isExpanded
+          Expanded
             ? 'fillForm-pd-input-container'
             : 'fillForm-inputsForm-closed'
         }
