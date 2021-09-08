@@ -61,7 +61,11 @@ function Menu() {
         <div>
             <Toggle />
             <ul className="jallowTemp1MenuList">
-                <li className='jallowTemp1MenuLink jallowTempBack'><a href='http://localhost:3000/templates'>Back</a></li>
+                <li className='jallowTemp1MenuLink jallowTempBack'>
+                    <a href='/templates'>
+                    <i class="fas fa-arrow-circle-left"></i>&nbsp;
+                        Back To Templates</a>
+                </li>
                 <li className='jallowTemp1MenuLink'><a href='#'>Resume</a></li>
                 <li className='jallowTemp1MenuLink'><a href='#'>Portfolio</a></li>
            

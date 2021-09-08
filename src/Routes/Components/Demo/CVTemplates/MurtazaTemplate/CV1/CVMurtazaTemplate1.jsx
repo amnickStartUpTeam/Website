@@ -56,7 +56,9 @@ function Background() {
         {" "}
         <a href="/templates">
           <h2 className="CVMurtazaTemp_go_back_icon">
-            <ImArrowLeft2 />{" "}
+          <i class="fas fa-arrow-circle-left"></i>&nbsp;
+          Back To Templates
+            {/* <ImArrowLeft2 />{" "} */}
           </h2>
         </a>
       </div>

@@ -196,6 +196,9 @@ function AboutMenu({ aboutToggle }) {
                 <AboutNavLinks href="/">Home</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>
+                <AboutNavLinks href='/templates'>CV_Templates</AboutNavLinks>
+              </AboutNavItem>
+              <AboutNavItem>
                 <AboutNavLinks href="/signUp">Sign Up</AboutNavLinks>
               </AboutNavItem>
               <AboutNavItem>

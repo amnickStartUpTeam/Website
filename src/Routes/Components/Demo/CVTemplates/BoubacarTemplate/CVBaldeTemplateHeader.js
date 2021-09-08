@@ -104,7 +104,8 @@ function Menu() {
             </li>
 
             <a href="/templates">
-              <li className="CVBaldeTemp-div-menu-right-text">Back</li>
+              <li className="CVBaldeTemp-div-menu-right-text">
+              <i class="fas fa-arrow-circle-left"></i>&nbsp;Back To Templates</li>
             </a>
           </ul>
         </nav>
