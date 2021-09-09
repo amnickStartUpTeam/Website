@@ -23,7 +23,9 @@ const Home = () => {
         {" "}
         <a href="/templates">
           <h2 className="Second_CV_Murtaza_Temp_go_back_icon">
-            <ImArrowLeft2 />{" "}
+          <i class="fas fa-arrow-circle-left"></i>&nbsp;
+          Back To Templates
+            {/* <ImArrowLeft2 />{" "} */}
           </h2>
         </a>
       </div>

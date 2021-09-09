@@ -63,7 +63,9 @@ function CVTemplateJallow2() {
 
                 <ul className='jallowCVTNavList'>
                   <li className='jallowCVTNavItem jallowTempBack'>
-                    <a href='http://localhost:3000/templates' className='jallowCVTNavLink'>Back</a>
+                    <a href='/templates' className='jallowCVTNavLink '>
+                    <i class="fas fa-arrow-circle-left"></i>&nbsp;
+                      Back</a>
                   </li>
 
                   <li className='jallowCVTNavItem'>

@@ -14,7 +14,7 @@
 
 .CVBaldeTemp2-menu{
     width: 100%; 
-    height: 100vh;
+    /* height: 100%; */
     background-color: black;
     display: flex;
     align-items: center;
@@ -27,12 +27,13 @@
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    margin-top: 10px;
 }
 .CVBaldeTemp2-menu-ul-back a{
     color: white;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: .8em;
     opacity: 0.9;
 }
 
@@ -43,6 +44,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 3px;
 }
 .CVBaldeTemp2-menu-icon{
     width: 85px;

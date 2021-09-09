@@ -33,13 +33,13 @@
     justify-content: space-around;
 }
 .jallowTemp1ImageLogo img{
-    width: 60px;
-    height: 50px;
+    width: 50px;
+    height: 40px;
     cursor: pointer;
 }
 .jallowTemp1IconLogo {
     display: flex;
-    font-size: 2.8rem;
+    font-size: 1.8rem;
     justify-content: center;
     margin: 0 1rem;
 }
@@ -61,7 +61,7 @@
     list-style-type: none;
 }
 .jallowTemp1MenuList li a {
-    font-size: 15px;
+    font-size: 12px;
     text-transform: uppercase;
     color: white;
     text-decoration: none;
@@ -69,14 +69,15 @@
     top: 10%;
 }
 .jallowTemp1MenuLink{
-    font-size: 14px;
-    letter-spacing: 1.2px;
-    margin: 0 .9rem;
-    padding: 0.4em;
+    /* font-size: 12px; */
+    letter-spacing: .9px;
+    margin: 0 .5rem;
+    padding: 0.2em;
 }
  .jallowTempBack a{
     padding-bottom: 2px;
     border-bottom: 1px solid;
+    text-transform: none!important;
 }
 .jallowTemp1MenuLink:hover{
     background-color: #ccc;
@@ -84,7 +85,7 @@
     transition: 1s;
 }
 .jallowTemp1Checkbtn{
-    font-size: 40px;
+    font-size: 30px;
     color: white;
     float: right;
     line-height: 80px;
@@ -98,14 +99,14 @@
 #jallowTemp1Pdf {
     position: absolute;
     font-size: 1rem;
-    top: 18px;
-    right: 10px;
-    padding: 6px 12px;
+    top: 20px;
+    left: 25%;
+    padding: 4px 8px;
     margin-right: 5px;
     color: #FFFFFF;
     background-color: transparent;
     border-radius: 3px;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     cursor: pointer;
   }
 .jallowCVTPage{
