@@ -2,18 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../../css/FillForm.css';
 import PersonalDetails from './PersonalDetails';
 import Education from './Education';
+import Experience from './Experience';
 
 function Central() {
   const [step, setStep] = useState(1);
-  // const eduSchema = {
-  // id: 0,
-  // component: undefined,
-  //   school: '',
-  //   degree: '',
-  //   startDate: '',
-  //   endDate: '',
-  //   city: '',
-  // };
 
   const [edu, setEdu] = useState([
     {
@@ -26,6 +18,19 @@ function Central() {
       city: '',
     },
   ]);
+
+  const [exp, setExp] = useState([
+    {
+      id: undefined,
+      component: undefined,
+      jobTitle: '',
+      employer: '',
+      dateStart: '',
+      dateEnd: '',
+      place: '',
+    },
+  ]);
+
   const [values, setValues] = useState({
     personalInfo: {
       firstName: '',
@@ -49,12 +54,13 @@ function Central() {
     workExperience: [
       {
         id: 0,
-        jobTitile: '',
+        component: undefined,
+        jobTitle: '',
         employer: '',
-        startDate: '',
-        endDate: '',
-        city: '',
-      },
+        dateStart: '',
+        dateEnd: '',
+        place: '',
+      }
     ],
     others: [
       {
@@ -94,8 +100,11 @@ function Central() {
     setStep((prev) => prev - 1);
   };
 
-  const addSection = (id, value) => {
+  const addEduSection = (id, value) => {
     setEdu((prev) => [...prev, { id, component: value }]);
+  };
+  const addExpSection = (id, value) => {
+    setExp((prev) => [...prev, { id, component: value }]);
   };
 
   const handleChange = (input, value, sectionId) => {
@@ -119,29 +128,15 @@ function Central() {
     }
   };
 
-  //-------------------- TEST ----------------------
-
-  // useEffect(() => {
-  //   const eduSchema = {
-  //     id: 0,
-  //     component: undefined,
-  //     school: '',
-  //     degree: '',
-  //     startDate: '',
-  //     endDate: '',
-  //     city: '',
-  //   };
-  //   // setValues((prev) => {
-  //   //   // console.log(prev);
-  //   //   return education.push({ ...prev.education[0], id: 1 });
-  //   // });
-  //   setEdu((prev) => [...prev, { ...eduSchema, city: 'HER' }]);
-  // }, []);
-
   const handleEduChange = (input, value) => {
     setEdu((prev) => [...prev, { [input]: value }]);
   };
   console.log(edu);
+
+  const handleExpChange = (input, value) => {
+    setExp((prev) => [...prev, { [input]: value }]);
+  };
+  console.log(exp);
   // ------------------------------------------------
 
   const displaySteps = () =>
@@ -168,13 +163,25 @@ function Central() {
       case 2:
         return (
           <Education
-            addSection={addSection}
+            addEduSection={addEduSection}
             handleChange={handleChange}
             education={education}
             edu={edu}
             handleEduChange={handleEduChange}
           />
         );
+
+      case 3:
+        return (
+          <Experience
+            addExpSection={addExpSection}
+            handleChange={handleChange}
+            workExperience={workExperience}
+            exp={exp}
+            handleExpChange={handleExpChange}
+          />
+        );
+
       default:
         return (
           <PersonalDetails
@@ -202,8 +209,8 @@ function Central() {
       <hr className='fillForm-hr-centarl' />
       <Education /> */}
       {displayCard()}
-      <button onClick={(e) => prevStep(e)}>Prev</button>
-      <button onClick={(e) => nextStep(e)}>Next step</button>
+      <button onClick={(e) => prevStep(e)} className='fillFormSwitchBtn'>Prev setp</button>
+      <button onClick={(e) => nextStep(e)} className='fillFormSwitchBtn'>Next step</button>
     </div>
   );
 }

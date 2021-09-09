@@ -1,57 +1,53 @@
 import React, { useState } from 'react';
 import '../../css/FillForm.css';
-import Form from './Form.js';
+import FormExp from './FormExp';
 
-const Education = ({
-  addEduSection,
-  edu,
-  handleEduChange,
-  handleChange,
-  education,
-}) => {
+const Experience = ({
+  addExpSection,
+  exp,
+  handleExpChange,
+ }) => {
   const [sectionToProcess, setSectionToProcess] = useState();
-  console.log('Edu from DUCATION:', edu);
-  const displayEducationForms = edu.map((el, i) => (
+  console.log('Exprience from Work Experience:', exp);
+
+  const displayExperienceForms = exp.map((el, i) => (
     <div className='fillForm-fullwidth-form' key={i}>
       {el.component}
-      {/* {<i className='fas fa-minus' 
-        id='fillForm-minus-icon' 
-      />} */}
     </div>
   ));
 
   let sectionID = Math.floor(Math.random() * 1000);
   const handleClick = () => {
-    addEduSection(
+    addExpSection(
       sectionID,
-      <Form
+      <FormExp
         section={sectionToProcess}
-        edu={edu}
-        handleEduChange={handleEduChange}
-      />,
+        exp={exp}
+        handleExpChange={handleExpChange}
+      />
     );
   };
 
   const findDataToChange = (id) => {
-    let index = edu.find((el) => {
+    let index = exp.find((el) => {
       console.log(el);
       return el.id === id;
     });
-    // console.log(id);
     setSectionToProcess(index);
   };
+
   return (
     <div className='fillForm-education-container'>
-      <h3>Education</h3>
-      {displayEducationForms}
+      <h3>Work Experience</h3>
+      {displayExperienceForms}
       <div className='fillForm-add-container'>
         <i className='fas fa-plus' id='fillForm-plus-icon' />
         <button className='fill-form-add-btn' onClick={handleClick}>
-          Add Education
+          Add Experience
         </button>
       </div>
     </div>
   );
 };
 
-export default Education;
+export default Experience;
