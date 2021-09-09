@@ -88,7 +88,8 @@ function Header() {
         </a>
                
         <a className="CVMarTemp2-header-back" href="/templates">
-          &larr;Back
+        <i class="fas fa-arrow-circle-left"></i>&nbsp;
+          Back To Templates
         </a>
 
         

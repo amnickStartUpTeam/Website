@@ -156,7 +156,8 @@ function Menu() {
           <ul className="CVBaldeTemp2-menu-ul">
             <li className="CVBaldeTemp2-menu-ul-back">
               {" "}
-              <a href="http://localhost:3000">Back</a>
+              <a href="/templates">
+              <i class="fas fa-arrow-circle-left"></i>&nbsp;Back To Templates</a>
             </li>
             <li
               onClick={() => onClick(5)}

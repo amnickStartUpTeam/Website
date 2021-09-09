@@ -99,9 +99,10 @@ function Header() {
 
             <div className="JAnimatedNavItem">
               <a
-                href="http://localhost:3000/templates"
-                className="JAnimatedNavList"
+                href="/templates"
+                className="JAnimatedNavList " id='jallowTempBack'
               >
+                <i class="fas fa-arrow-circle-left"></i>&nbsp;
                 Back
               </a>
               <a href="#" className="JAnimatedNavList">

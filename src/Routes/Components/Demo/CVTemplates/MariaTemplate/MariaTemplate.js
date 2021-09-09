@@ -73,7 +73,9 @@ function MariaTemp(){
             
             
             <div className="CVMarTemp-right"> 
-            <a className="CVMarTemp-header-back" href='/templates'>&larr;Back</a>
+            <a className="CVMarTemp-header-back jallowTempBack" href='/templates'>
+            <i class="fas fa-arrow-circle-left"></i>&nbsp;
+                Back To Templates</a>
    
                 <ul
                   className="dropdown-menu-maria-cv"
