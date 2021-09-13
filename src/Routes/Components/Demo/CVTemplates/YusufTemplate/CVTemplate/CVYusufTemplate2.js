@@ -65,7 +65,7 @@ function CVYusufTemplate2 (){
               <li>
                 <a className="CVYusufTemp-div-menu-nav-link" href="/templates">
                 <i class="fas fa-arrow-circle-left"></i>&nbsp;
-                  Back to Template
+                  Back to Templates
                 </a>
               </li>
               <li>

@@ -55,7 +55,7 @@ function CVYusufTemplate1 (){
           <li><a className="CVYusufTemp-div-menu-nav-link" href="/">Home</a></li>
           <li><a className="CVYusufTemp-div-menu-nav-link" href="/templates">
           <i class="fas fa-arrow-circle-left"></i>&nbsp;
-            Back to Template</a></li>
+            Back to Templates</a></li>
           <li><Pdf targetRef={ref} filename="resume.pdf"paperSize="A4" margin="2cm">
             {({ toPdf }) => <a className="CVYusufTemp-div-menu-nav-link" onClick={toPdf}href="#section">Download PDF</a>} 
             </Pdf></li>
