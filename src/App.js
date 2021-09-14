@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import FillForm from './Routes/Components/FillForm'; // This will change later
 import About from './Routes/Components/About';
 import Admin from './Routes/Components/Admin/Dashboard';
+import Payment from './Routes/Components/Payment';
 import Home from './Routes/Components/Home';
 import LiveCVDisplay from './Routes/Components/LiveCVDisplay';
 import LogIn from './Routes/Components/LogIn';
@@ -35,6 +36,7 @@ function App() {
           <Route path='/fillform' exact component={FillForm} />
           <Route path='/about' exact component={About} />
           <Route path='/admin' exact component={Admin} />
+          <Route path='/payment' exact component={Payment} />
           <Route path='/livecvdisplay' exact component={LiveCVDisplay} />
           <Route path='/login' exact component={LogIn} />
           <Route exact path='/restaurant' component={Restaurant} />
