@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../connection/connection');
+// const cors = require('cors');
+
+// router.use(cors());
 
 /* GET method */
 router.get('/', (req, res) => {
@@ -29,6 +32,29 @@ router.get('/:id', (req, res) => {
     console.error(`Error ${error}`);
   }
 });
+
+// Query for email & password
+router.post('./users', (req, res) => {
+  // const loginUser = req.body.values;
+  const email = req.body.email;
+  const password = req.body.password;
+  pool.query(
+    "SELECT * FROM users WHERE email = ? AND password = ?",
+    // [loginUser], (err, result) => {
+    [email, password], (err, result) => {
+      if(err) {
+        res.send({err: Error})
+      }
+
+      if(result.lenght > 0) {
+        // console.log(result);
+        res.send(result);
+      } else {
+        res.send({Message: "Your email OR password is incorrect"})
+      }
+    }
+  )
+})
 
 /* POST method */
 router.post('/', (req, res) => {
