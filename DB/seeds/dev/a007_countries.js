@@ -12,9 +12,10 @@ function isNotBIO() {
   return country;
 } */
 
-const createFakeCountry = () => ({
+const createFakeCountry = (i) => ({
   creationDate: moment(faker.date.past()).format('YYYY-MM-DD'),
   country: faker.address.country(),
+  code: i,
 });
 
 exports.seed = async function (knex) {
@@ -22,7 +23,7 @@ exports.seed = async function (knex) {
   const desiredFakeCountries = 50;
 
   for (let i = 0; i < desiredFakeCountries; i += 1) {
-    fakeCountries.push(createFakeCountry());
+    fakeCountries.push(createFakeCountry(i));
   }
 
   await knex('countries').insert(fakeCountries);

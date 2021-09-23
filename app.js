@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 
 const citiesRouter = require('./routes/cities');
+const currenciesRouter = require('./routes/currencies');
 const countriesRouter = require('./routes/countries');
 const cvTemplatesRouter = require('./routes/cvTemplates');
 const gendersRouter = require('./routes/genders');
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
   });
 
 app.use('/cities', citiesRouter);
+app.use('/currencies', currenciesRouter);
 app.use('/countries', countriesRouter);
 app.use('/cvTemplates', cvTemplatesRouter);
 app.use('/genders', gendersRouter);
