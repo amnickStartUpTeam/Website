@@ -15,6 +15,8 @@ function isNotBIO() {
 const createFakeCountry = () => ({
   creationDate: moment(faker.date.past()).format('YYYY-MM-DD'),
   country: faker.address.country(),
+  code: faker.datatype.number({ min: 1, max: 99 }),
+  currencyId: faker.datatype.float({ min: 1, max: 3 }),
 });
 
 exports.seed = async function (knex) {
