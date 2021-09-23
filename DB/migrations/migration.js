@@ -34,6 +34,11 @@ exports.up = function(knex, Promise){
     table.timestamp('creationDate').notNullable();
     table.varchar('gender', 45).notNullable();
   })
+  .createTable('currencies', table =>{
+    table.increments('id').primary();
+    table.timestamp('creationDate').notNullable();
+    table.varchar('currency', 100).notNullable();
+  })
   .createTable('subscriptions', table => {
     table.increments('id').primary();
     table.timestamp('subscriptionDate').notNullable();
@@ -45,7 +50,9 @@ exports.up = function(knex, Promise){
     table.increments('id').primary();
     table.timestamp('creationDate').notNullable();
     table.varchar('country', 100).notNullable();
- 
+    table.integer('code', 30).notNullable();
+    table.integer('currencyId').unsigned().nullable();
+    table.foreign('currencyId').references('currencies.id');
   })
   .createTable('states', table => {
     table.increments('id').primary();
@@ -114,6 +121,7 @@ exports.down = function(knex, Promise){
   .dropTable('states')
   .dropTable('countries')
   .dropTable('subscriptions')
+  .dropTable('currencies')
   .dropTable('genders')
   .dropTable('professions')
   .dropTable('languages')
