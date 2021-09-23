@@ -16,7 +16,7 @@
 #PaymentForm {
 	width: 500px;
 	display: flex;
-	height: 115vh;
+	height: 120vh;
 	/* justify-content: space-around; */
 	flex-direction: column;
 	background: #e4dada;
@@ -40,8 +40,9 @@
 	outline: none;
 	font-weight: 500;
 	border-radius: 15px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-.PaymentFormInputCountry {
+/* .PaymentFormInputCountry {
 	background: #f1f1f1;
 	padding: 10px;
 	width: 40%;
@@ -52,8 +53,15 @@
 	outline: none;
 	font-weight: 600;
 	border-radius: 15px;
-}
+} */
 
 .rccs__card--unknown > div {
 	background: #75c9a5;
+}
+#countryId{
+	border-radius: 15px;
+  background-color: #f1f1f1;
+  max-width: 100px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
 }
