@@ -13,6 +13,7 @@ const baseUrl = 'http://localhost:8080';
 
 const MyCards = () => {
 	const [countries, setCountries] = useState([]);
+	const [currencies, setCurrencies] = useState([]);
 	const [data, setData] = useState({
 		cvc: "",
 		expiry: "",
@@ -34,9 +35,16 @@ const MyCards = () => {
 		  console.log(`${error}`);
 		}
 	  }
-
+	  const fetchCurrencies = async() => {
+		try{
+			setCurrencies(await (await axios.get(baseUrl+'/currencies')).data);
+		} catch(error){
+		  console.log(`${error}`);
+		}
+	  }
 	useEffect(() => {
 		fetchCountries();
+		fetchCurrencies(); console.log(currencies);
 		}, []);
 
 	return (
@@ -46,9 +54,12 @@ const MyCards = () => {
 		<div id="PaymentForm">
 			<FormControl  size="xs" width="100%" id="currency">
   				<FormLabel textAlign="center" fontSize="small">Select your preferred currency</FormLabel>
-  				<Select borderRadius="lg" size="xs" inlineSize="40" marginLeft="24" backgroundColor="#fffe" placeholder="Eu euro">
-    				<option>EU euro</option>
-    				<option>USA dolar</option>
+  				<Select   borderRadius="lg" size="xs" inlineSize="40" marginLeft="24" 
+				  backgroundColor="#fffe" placeholder="select" 
+                        onChange={handleInputChange}>
+                            { currencies.map((currency) =>
+                              <option value={currency.id}>{currency.currency}</option> )
+                             }
   				</Select>
 			</FormControl> <br/>
 			<div className='storeFooterPaymentLink'>
@@ -106,9 +117,9 @@ const MyCards = () => {
 			<HStack spacing="24px">
 				<select id="countryId" name="countryId" 
                         onChange={handleInputChange}>
-                          <option value={countries}>-Country code-</option>
+                          <option value={countries}>-Code-</option>
                             { countries.map((country) =>
-                              <option value={country.id}>{country.country}</option> )
+                              <option value={country.id}>{country.country}/+{country.code}</option> )
                              }
                       </select> 
 				<input className="PaymentFormInput" isRequired
