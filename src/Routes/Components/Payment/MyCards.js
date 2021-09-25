@@ -52,9 +52,9 @@ const MyCards = () => {
 			 <br/>
 		 
 		<div id="PaymentForm">
-			<FormControl  size="xs" width="100%" id="currency">
+			<FormControl  size="xs"  id="currency">
   				<FormLabel textAlign="center" fontSize="small">Select your preferred currency</FormLabel>
-  				<Select   borderRadius="lg" size="xs" inlineSize="40" marginLeft="24" 
+  				<Select width="90%"  borderRadius="lg" size="xs"    paddingLeft="10"  
 				  backgroundColor="#fffe" placeholder="select" 
                         onChange={handleInputChange}>
                             { currencies.map((currency) =>
@@ -119,7 +119,7 @@ const MyCards = () => {
                         onChange={handleInputChange}>
                           <option value={countries}>-Code-</option>
                             { countries.map((country) =>
-                              <option value={country.id}>{country.country}/+{country.code}</option> )
+                              <option value={country.id}>{country.country} (+{country.code})</option> )
                              }
                       </select> 
 				<input className="PaymentFormInput" isRequired

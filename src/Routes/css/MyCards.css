@@ -4,20 +4,15 @@
     width: 100%;
     color:black;
     font-size: 0.9em;
-    z-index: 0;
     display: flex;
     align-items: center;
-    text-align: center;
-    justify-content: center;
     flex-direction: column;
-	border-radius: 15px;
-
 }
+
 #PaymentForm {
 	width: 500px;
 	display: flex;
-	height: 120vh;
-	/* justify-content: space-around; */
+	height: 126vh;
 	flex-direction: column;
 	background: #e4dada;
 	border-radius: 10px;
@@ -63,5 +58,45 @@
   background-color: #f1f1f1;
   max-width: 100px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
 }
+
+ /* responsive for mobile display */
+ @media only screen and (max-width: 1024px) {
+	#PaymentForm {
+		height: 80%;  
+	}
+  }
+@media only screen and (max-width: 600px) {
+	#PaymentForm {
+		width: 80%;
+		height: 80%;  
+	}
+	.PaymentFormInput { 
+		width: 90%;		 
+		margin-bottom: 10px;		 
+	}
+  }
+  
+@media only screen and (max-width: 500px) {
+	#PaymentForm {
+		width: 80%;
+		height: 80%;
+	}
+	.PaymentFormInput {
+		padding: 3px;
+		width: 90%;	 
+	}
+  }	 
+ 
+  @media only screen and (max-width: 380px) {
+	#PaymentForm {
+		width: 90%;
+		height: 80%;
+	}
+	.PaymentFormInput {
+		padding: 3px;
+		width: 90%;	 
+	}
+  }	 
+  
+  
