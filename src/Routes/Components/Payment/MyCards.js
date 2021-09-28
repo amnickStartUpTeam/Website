@@ -122,7 +122,7 @@ const MyCards = () => {
                               <option value={country.id}>{country.country} (+{country.code})</option> )
                              }
                       </select> 
-				<input className="PaymentFormInput" isRequired
+				<input className="PaymentFormInput" 
 					type="phone"
 					name="phone"
 					placeholder="number"
