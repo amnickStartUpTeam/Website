@@ -1,6 +1,7 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/Login.css';
+import ModelPopup from '../SignUp/ModelPopup'
 import footer_img from '../../imgs/logo_NoFrame.jpg';
 
 // languages import
@@ -8,6 +9,9 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import cookies from 'js-cookie';
 import classNames from 'classnames';
+
+const axios = require('axios').default;
+const baseUrl = 'http://localhost:8080';
 
 // Language implementation
 const languages = [
@@ -25,6 +29,43 @@ const LoginForm = () => {
   const currentLanguageCode = cookies.get('i18next') || 'en';
   const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
   const { t } = useTranslation();
+
+  // const [ values, setValues ] = useState({ email: '', password: '' });
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+
+  const [ loginStatus, setLoginStatus ] = useState("");
+
+  const [pop, setPop] = useState({ 
+    showPopup: false,
+    text:"You're now login"
+  });
+
+  // const handleChange = e => {
+  //   const { name, value } = e.target;
+  //   setValues({...values, [name]: value});
+  //   console.log(values);
+  // };
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   setValues({ email: '', password: '' })
+  // };
+
+  const login = () => {
+    axios.post(baseUrl+'/users', {
+      email: email,
+      password: password,
+    }).then((res) => {
+      console.log(res.data);
+      // if(res.data.message) {
+      //   setLoginStatus(res.data.message)
+      // } else {
+      //   setLoginStatus(res.data[0].id)
+      // }
+      // console.log(res);
+    })
+  }
 
   // language implementation
   useEffect(() => {
@@ -64,10 +105,28 @@ const LoginForm = () => {
 
         <div className='main-login'>
           <label className='login-label'>
-            <input className='login-input' name='name' placeholder='Email or username'></input>
+            <input 
+            className='login-input' 
+            name="email"
+            type="email"
+            value={email}
+            placeholder='Email or username'
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
+            ></input>
           </label>
           <label className='login-label'>
-            <input className='login-input' name='password' placeholder='Password'></input>
+            <input 
+            className='login-input' 
+            name="password"
+            type="password"
+            value={password}
+            placeholder='Password'
+            onChange={(e) => {
+              setPassword(e.target.value)
+            }}
+            ></input>
           </label>
           <div className='login-div-password'>
             <div className='login-forgot'>
@@ -77,16 +136,26 @@ const LoginForm = () => {
             </div>
             <div className='login-div-remember'>
               <input type='checkbox' id='remember_me' name='_remember_me' />
-              <label for='remember_me' class='login-remember'>
+              <label htmlFor='remember_me' className='login-remember'>
                 Remember me
               </label>
             </div>
           </div>
         </div>
-        <button className='login-btn' type='submit'>
+        <button 
+          className='login-btn' 
+          type="submit"
+          onClick={login}
+        >
           Log in
         </button>
-
+        <h1>{loginStatus}</h1>
+        {/* {pop.showPopup ?
+         <ModelPopup
+          text={pop.text}
+         />
+         : null
+        }         */}
         <div className='login-div'>
           <span>Not registered? </span>
           <Link className='login-link' to='/signUp'>

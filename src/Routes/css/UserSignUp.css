@@ -115,17 +115,17 @@ letter-spacing: 4px;
   bottom: 25%;  
   margin: auto;  
   border-radius: 10px;  
-  background:rgba(123, 46, 143, 0.425);  
+  background:rgba(182, 174, 184, 0.425);  
   font-style: italic;
   text-align: center;  
 }
 .LoginRegister-popup-inner h1{
-  color:rgb(29, 164, 168);
+  color:rgb(15, 33, 34);
   font-weight: 1000;
-  font-size: 1em;
+  font-size: 2em;
 }
 .LoginRegister-popup-inner h6{
-  color:white;
+  color:rgb(156, 30, 30);
 }
 
 .dropdown_menu_sign_up {
