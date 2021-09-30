@@ -7,6 +7,8 @@ import {
 	FormControl,Select,Text,Button,Checkbox,
 	FormLabel,Stack,HStack,Box
   } from "@chakra-ui/react"
+import ModelPopup from '../SignUp/ModelPopup';  
+
 const axios = require('axios').default;
 const baseUrl = 'http://localhost:8080';
 
@@ -18,8 +20,17 @@ const MyCards = () => {
 		cvc: "",
 		expiry: "",
 		name: "",
-		number: ""
+		number: "",
+		current:"",
+		email:"",
+		code:""
 	});
+ 
+	const [pop, setPop] = useState({
+	  showPopup: false,
+	  text:'payment',
+	  ext:'ext'
+	})
 
 	const handleInputChange = (e) => {
 		setData({
@@ -44,9 +55,29 @@ const MyCards = () => {
 	  }
 	useEffect(() => {
 		fetchCountries();
-		fetchCurrencies(); console.log(currencies);
+		fetchCurrencies();  
 		}, []);
 
+		const addPayment = () => {  
+			if(data.number.length>16){
+			  setPop({
+				showPopup: !pop.showPopup,
+				text:'ooppps ! Your card number doesn`t match'
+			  })
+				
+			}else{ 
+			  if (data.current.length>=1&data.name.length>=1&data.expiry.length>=1
+				&data.cvc.length>=3 &data.email.length>=1){ 
+				//   postPayment(data);
+				  console.log('Payment is OK')
+				  setPop({showPopup: !pop.showPopup,text:"Payment is succesfull"})
+				  setTimeout(() => {
+					window.location.reload(); 
+				  }, 6000); 
+				}  else{setPop({showPopup: !pop.showPopup,text:"please fill all fields"})}     
+			}
+		  }
+		
 	return (
 		<div className="PaymentPage">
 			 <br/>
@@ -55,10 +86,10 @@ const MyCards = () => {
 			<FormControl  size="xs"  id="currency">
   				<FormLabel textAlign="center" fontSize="small">Select your preferred currency</FormLabel>
   				<Select width="90%"  borderRadius="lg" size="xs"    paddingLeft="10"  
-				  backgroundColor="#fffe" placeholder="select" 
+				  backgroundColor="#fffe" placeholder="select"  fontSize="large"
                         onChange={handleInputChange}>
                             { currencies.map((currency) =>
-                              <option value={currency.id}>{currency.currency}</option> )
+                              <option key={currency.id} value={currency.id}>{currency.currency}</option> )
                              }
   				</Select>
 			</FormControl> <br/>
@@ -114,16 +145,16 @@ const MyCards = () => {
 					onChange={handleInputChange}
 				/>	
 				<Box w="7px" h="10"  />  <i className='fas fa-phone'></i> <Text fontSize="sm" paddingLeft="2" as="em">Phone number</Text>
-			<HStack spacing="24px">
-				<select id="countryId" name="countryId" 
+			<HStack >
+				<select id="countryId" name="code" 
                         onChange={handleInputChange}>
                           <option value={countries}>-Code-</option>
                             { countries.map((country) =>
-                              <option value={country.id}>{country.country} (+{country.code})</option> )
-                             }
+                              <option key={country.id} value={country.id}>{data.code.length>0? null:country.country} (+{country.code})</option> )
+                             }  
                       </select> 
 				<input className="PaymentFormInput" 
-					type="phone"
+					type="number"
 					name="phone"
 					placeholder="number"
 					onChange={handleInputChange}
@@ -135,10 +166,17 @@ const MyCards = () => {
             		mt={4}
             		colorScheme="teal"
             		type="submit"
+					onClick={addPayment}
           			>
             		Pay Now
           		</Button>
-				 
+				  {pop.showPopup ?
+                    <ModelPopup
+                      text={pop.text}
+                      ext={pop.ext}
+                    />
+                    : null
+                  }
 			</form>
 			</div>
 		
