@@ -5,9 +5,12 @@ import Cards from "react-credit-cards";
 import "react-credit-cards/es/styles-compiled.css";
 import {
 	FormControl,Select,Text,Button,Checkbox,
-	FormLabel,Stack,HStack,Box
+	FormLabel,HStack,Box
   } from "@chakra-ui/react"
-import ModelPopup from '../SignUp/ModelPopup';  
+import { useHistory } from 'react-router-dom';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
 
 const axios = require('axios').default;
 const baseUrl = 'http://localhost:8080';
@@ -25,14 +28,20 @@ const MyCards = () => {
 		email:"",
 		code:""
 	});
- 
-	const [pop, setPop] = useState({
-	  showPopup: false,
-	  text:'payment',
-	  ext:'ext'
-	})
+	const history = useHistory();
+	const notification = {
+		insert: "top",
+		container: "bottom-right",
+		dismiss: {
+			duration: 9000,
+			onScreen: true
+		  },
+		animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
+		animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
+	  };
 
 	const handleInputChange = (e) => {
+		e.preventDefault();  
 		setData({
 			...data,
 			[e.target.name]: e.target.value
@@ -58,35 +67,50 @@ const MyCards = () => {
 		fetchCurrencies();  
 		}, []);
 
-		const addPayment = () => {  
-			if(data.number.length>16){
-			  setPop({
-				showPopup: !pop.showPopup,
-				text:'ooppps ! Your card number doesn`t match'
-			  })
+		const addPayment = (e) => {  
+			e.preventDefault();
+			if(data.number.length<=15){  
+				store.addNotification({
+					...notification,
+					 title: "ooppps !",
+					 message: "Your card number doesn`t match",
+					 type: "danger",
+				  });
+ 
 				
 			}else{ 
-			  if (data.current.length>=1&data.name.length>=1&data.expiry.length>=1
-				&data.cvc.length>=3 &data.email.length>=1){ 
+			  if (data.current.length>=1&data.number.length>=15&data.name.length>=3&
+				data.expiry.length>=1&data.cvc.length==3&data.email.length>=3 ){ 
 				//   postPayment(data);
-				  console.log('Payment is OK')
-				  setPop({showPopup: !pop.showPopup,text:"Payment is succesfull"})
-				  setTimeout(() => {
-					window.location.reload(); 
-				  }, 6000); 
-				}  else{setPop({showPopup: !pop.showPopup,text:"please fill all fields"})}     
+					store.addNotification({
+						...notification,
+						title: "Wonderful!",
+						message: "Payment is succesfull",
+						type: "success",
+				  	});
+					  setTimeout(() => {
+						history.push("/");
+					  }, 600); 
+				}  else{
+					store.addNotification({
+						...notification,
+						 title: "ooppps !",
+						 message: "please fill all fields correctly",
+						 type: "warning",
+					  });
+				}     
 			}
 		  }
 		
 	return (
 		<div className="PaymentPage">
 			 <br/>
-		 
+			 <ReactNotification />
 		<div id="PaymentForm">
 			<FormControl  size="xs"  id="currency">
   				<FormLabel textAlign="center" fontSize="small">Select your preferred currency</FormLabel>
   				<Select width="90%"  borderRadius="lg" size="xs"    paddingLeft="10"  
-				  backgroundColor="#fffe" placeholder="select"  fontSize="large"
+				  backgroundColor="#fffe" placeholder="select"  fontSize="large" name="current"
                         onChange={handleInputChange}>
                             { currencies.map((currency) =>
                               <option key={currency.id} value={currency.id}>{currency.currency}</option> )
@@ -128,7 +152,6 @@ const MyCards = () => {
 				<input className="PaymentFormInput"
 					type="date"
 					name="expiry"
-					placeholder="12/12/2023"
 					onChange={handleInputChange}
 				/>
 				
@@ -146,7 +169,7 @@ const MyCards = () => {
 				/>	
 				<Box w="7px" h="10"  />  <i className='fas fa-phone'></i> <Text fontSize="sm" paddingLeft="2" as="em">Phone number</Text>
 			<HStack >
-				<select id="countryId" name="code" 
+				<select id="PaymentCountryId" name="code" 
                         onChange={handleInputChange}>
                           <option value={countries}>-Code-</option>
                             { countries.map((country) =>
@@ -170,13 +193,7 @@ const MyCards = () => {
           			>
             		Pay Now
           		</Button>
-				  {pop.showPopup ?
-                    <ModelPopup
-                      text={pop.text}
-                      ext={pop.ext}
-                    />
-                    : null
-                  }
+			 
 			</form>
 			</div>
 		
