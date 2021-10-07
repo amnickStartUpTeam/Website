@@ -69,7 +69,7 @@ const MyCards = () => {
 
 		const addPayment = (e) => {  
 			e.preventDefault();
-			if(data.number.length<=15){  
+			if(data.number.length<15){  
 				store.addNotification({
 					...notification,
 					 title: "ooppps !",
@@ -79,7 +79,7 @@ const MyCards = () => {
  
 				
 			}else{ 
-			  if (data.current.length>=1&data.number.length>=15&data.name.length>=3&
+			  if (data.current.length>=1&data.number.length<17&data.name.length>=3&
 				data.expiry.length>=1&data.cvc.length==3&data.email.length>=3 ){ 
 				//   postPayment(data);
 					store.addNotification({
