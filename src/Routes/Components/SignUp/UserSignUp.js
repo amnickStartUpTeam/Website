@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { Button, Card, CardBody, Col, Container,
   Form, Input, InputGroup, Row } from 'reactstrap';
 // languages import
@@ -10,7 +9,9 @@ import classNames from "classnames";
 
 import '../../css/UserSignUp.css';
 import moment from 'moment';
-import ModelPopup from './ModelPopup';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+import { store } from 'react-notifications-component';
 const axios = require('axios').default;
 const baseUrl = 'http://localhost:8080';
 
@@ -32,12 +33,17 @@ const UserSignUp = () => {
      
   const [userData, setUserData] = useState(initialInputState)
   const { creationDate, firstName, lastName, email, password, password2, dateOfBirth, lookingJobAt, userTypeId, languageId, professionId, cityId, genderId } = userData
-  const history = useHistory()
-  const [pop, setPop] = useState({
-    showPopup: false,
-    text:'register',
-    ext:'ext'
-  })
+
+  const notification = {
+		insert: "top",
+		container: "center",
+		dismiss: {
+			duration: 9000,
+			onScreen: true
+		  },
+		animationIn: ["animate__animated animate__fadeIn"], // `animate.css v4` classes
+		animationOut: ["animate__animated animate__fadeOut"] // `animate.css v4` classes
+	  };
   const [countries, setCountries] = useState([]);
   const [cities, setCities] = useState([]);
   const [languages, setLanguages] = useState([]);
@@ -111,28 +117,41 @@ const UserSignUp = () => {
     setUserData({...userData,creationDate:now});
   }
 
-  const addUser = () => {  
+  const addUser = (e) => {  
     if(password!==password2){
-      setPop({
-        showPopup: !pop.showPopup,
-        text:'ooppps ! Your password doesn`t match'
-      })
-        
+      store.addNotification({
+        ...notification,
+         title: "ooppps !",
+         message: "Your password doesn`t match",
+         type: "danger",
+        });
     }else{ 
       if (firstName.length>=3&lastName.length>=3&email.length>=3&password.length>=3 
         &lookingJobAt.length>=3&languageId.length>=1&professionId.length>=1&genderId.length>=1){ 
           postUser(userData);
-          console.log('Register SUCCESS')
-          setPop({showPopup: !pop.showPopup,text:"registration is succesfull"})
-          setTimeout(() => {
-            window.location.reload(); 
-          }, 600); 
-        }  else{setPop({showPopup: !pop.showPopup,text:"please fill all fields"})}     
+          store.addNotification({
+						...notification,
+						title: "Wonderful!",
+						message: "Registration Successful",
+						type: "success",
+				  	});
+					  setTimeout(() => {
+            window.location.reload();
+					  }, 600); 
+        }  else{
+          store.addNotification({
+						...notification,
+						 title: "ooppps !",
+						 message: "please fill all fields correctly",
+						 type: "warning",
+					  });
+          }     
     }
   }
-
+ 
   return(
     <div className="temp-div-signUp-container" >
+      <ReactNotification />
       <Container>
         <Row className='justify-content-center'>
           <Col md='9' lg='7' xl='6'>
@@ -219,21 +238,21 @@ const UserSignUp = () => {
                   </InputGroup>
                
                   <InputGroup className='temp-div-signUp-mb-3'>
-                    <label for="Male">M </label>
+                    <label >M </label>
                     <Input
                       className="tempForm-signup-inputRadio"
                       type='radio'
                       name='genderId'
                       onChange={e =>e.target.checked ? (userData.genderId='1'):null}
                     ></Input>
-                      <label for="Female">FM </label>
+                      <label >FM </label>
                     <Input
                       className="tempForm-signup-inputRadio"
                       type='radio' 
                       name='genderId'
                       onChange={e =>e.target.checked ? (userData.genderId='2'):null}
                     ></Input> 
-                    <label for="Other">Not S </label>
+                    <label >Not S </label>
                     <Input
                       className="tempForm-signup-inputRadio"
                       type='radio' 
@@ -242,7 +261,7 @@ const UserSignUp = () => {
                     ></Input> &#42;
                   </InputGroup>
                   <InputGroup className='temp-div-signUp-mb-3'>
-                    <label for="dateOfBirth">Birthday </label>
+                    <label >Birthday </label>
                     <Input
                       className="tempForm-signup-input"
                       type='date'
@@ -257,7 +276,7 @@ const UserSignUp = () => {
                         className='temp-div-signUp-mb-4' onChange={handleChangeCountry}>
                           <option value={countries}>-Select Country-</option>
                             { countries.map((country) =>
-                              <option value={country.id}>{country.country}</option> )
+                              <option key={country.id}value={country.id}>{country.country}</option> )
                              }
                       </select>&#42;
                   </InputGroup>
@@ -267,7 +286,7 @@ const UserSignUp = () => {
                         className='temp-div-signUp-mb-4' onChange={handleChange}>
                           <option value={cityId}>-Select City-</option>
                             { cities.map((city) =>
-                              <option value={city.id}>{city.cityName}/{city.state}</option> )
+                              <option key={city.id}value={city.id}>{city.cityName}/{city.state}</option> )
                              }
                       </select>
                   </InputGroup>
@@ -276,7 +295,7 @@ const UserSignUp = () => {
                         className='temp-div-signUp-mb-4' onChange={handleChange}>
                           <option value={languageId}>Select Language</option>
                             { languages.map((language) =>
-                              <option value={language.id}>{language.language}</option> )
+                              <option key={language.id} value={language.id}>{language.language}</option> )
                             }
                       </select>&#42;
                   </InputGroup>
@@ -285,7 +304,7 @@ const UserSignUp = () => {
                         className='temp-div-signUp-mb-4' onChange={handleChange}>
                           <option value={professionId}>Select Profession</option>
                             { professions.map((profession) =>
-                              <option value={profession.id}>{profession.profession}</option> )
+                              <option key={profession.id}value={profession.id}>{profession.profession}</option> )
                             }
                       </select>&#42;
                   </InputGroup>
@@ -299,13 +318,7 @@ const UserSignUp = () => {
                       placeholder='looking Job At' ></Input>&#42;
                   </InputGroup>
                   <Button onClick={addUser} id="temp-form-submit-btn" block>Create Account</Button>
-                  {pop.showPopup ?
-                    <ModelPopup
-                      text={pop.text}
-                      ext={pop.ext}
-                    />
-                    : null
-                  }
+                  
                 </Form>
               </CardBody>
             </Card>
