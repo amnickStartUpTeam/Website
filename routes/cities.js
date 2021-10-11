@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const pool = require('../connection/connection');
+const admin =require('../middlewares/admin');
+const auth =require('../middlewares/auth');
 
 /* GET method */
 router.get('/', (req, res) => {
