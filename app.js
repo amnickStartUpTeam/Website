@@ -2,6 +2,7 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 
+const auth = require('./routes/auth');
 const citiesRouter = require('./routes/cities');
 const currenciesRouter = require('./routes/currencies');
 const countriesRouter = require('./routes/countries');
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
     next();
   });
 
+app.use('/auth', auth);
 app.use('/cities', citiesRouter);
 app.use('/currencies', currenciesRouter);
 app.use('/countries', countriesRouter);
